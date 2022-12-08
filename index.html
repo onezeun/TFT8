@@ -13,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </head>
 
 <body>
@@ -58,12 +59,15 @@
     <!-- content -->
     <main id="content" class="content">
       <section class="main_info">
-        <h2> TEAMFIGHT TACTICS 괴물습격!</h2>
+        <div class="main_title_wrap">
+          <h2 class="main_title txt_hide"> TEAMFIGHT TACTICS 괴물습격!</h2>
+        </div>
         <!-- 모바일, 태블릿 메인 비디오 -->
         <div class="m_bg">
           <video class="video-container" autoplay muted loop>
             <source src="images/tft8.0.mp4" type="video/mp4">
           </video>
+          <img src="images/m_bg01.png" alt="모바일배경" class="m_sub_bg">
         </div>
         <!-- 데스트탑 배경 -->
         <div class="pc_bg">
@@ -71,8 +75,8 @@
           <img src="" alt="럭스">
         </div>
 
-        <img src="" alt="펭구">
-        <button type="button">무료로 플레이하기</button>
+        <img src="images/main_chr.png" alt="펭구" class="main_chr">
+        <button type="button" class="main_btn">무료로 플레이하기</button>
       </section>
 
       <div class="cont_wrap">
