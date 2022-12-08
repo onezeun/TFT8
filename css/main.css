@@ -1,8 +1,62 @@
+/* header */
+.header {
+  width: 100%;
+  height: 100px;
+  background: #282828;
+  position: relative;
+  display: flex;
+  align-content: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background: url(../images/TFT_logo.png) no-repeat;
+}
+
+.gnb {
+  width: 100%;
+}
+
+.gnb_btn {
+  width: 46px;
+  height: 36px;
+  background: url(../images/gnb_btn.png) no-repeat;
+  right: 10px;
+  top: 10px;
+}
+
+.main_menu {
+  display: none;
+}
+
+.sch_txt{
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #414141;
+  padding-left: 10px;
+  color: white;
+}
+
+.sch_btn{ 
+  width: 40px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background: #282828;
+  right: 17px;
+  top: 5px;
+}
+
+
 .m_bg {
   height: 600px;
   width: 100%;
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top: 100px;
 }
 
 .video-container {

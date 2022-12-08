@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TFT8.0 : 괴물습격</title>
   <link rel="shortcut icon" href="images/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
 </head>
@@ -17,33 +19,39 @@
   <div class="wrap">
     <!-- header -->
     <header id="header" class="header">
-      <h1 class="logo"><a href="#">전략적팀전투 시즌8</a></h1>
+      <div class="container align-self-center">
+        <div class="row position-relative justify-content-between">
+          <div class="col logo_wrap align-self-center">
+            <h1 class="logo txt_hide"><a href="#">전략적팀전투 시즌8</a></h1>
+          </div>
 
-      <nav class="gnb">
-        <h2>주요메뉴</h2>
-        <ul>
-          <li><a href="#">새 소식</a></li>
-          <li>
-            <a href="#">시즌 정보</a>
-            <ul>
-              <li><a href="#">챔피언</a></li>
-              <li><a href="#">시너지</a></li>
-              <li><a href="#">아이템</a></li>
-              <li><a href="#">증강</a></li>
+          <div class="col gnb order-1">
+            <h2 class="gnb_btn txt_hide position-absolute">주요메뉴</h2>
+            <ul class="main_menu">
+              <li><a href="#">새 소식</a></li>
+              <li>
+                <a href="#">시즌 정보</a>
+                <ul class="sub_menu">
+                  <li><a href="#">챔피언</a></li>
+                  <li><a href="#">시너지</a></li>
+                  <li><a href="#">아이템</a></li>
+                  <li><a href="#">증강</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-        </ul>
-      </nav>
+          </div>
 
-      <div class="search_box">
-        <form name="" action="" method="">
-          <fieldset>
-            <legend>검색</legend>
-            <label for="sch_txt">입력</label>
-            <input type="text" name="sch_txt" id="sch_txt">
-            <button>검색</button>
-          </fieldset>
-        </form>
+          <div class="col-8 search_box position-relative align-self-center">
+            <form name="" action="" method="">
+              <fieldset>
+                <legend class="hide">검색</legend>
+                <label for="sch_txt" class="hide">입력</label>
+                <input type="text" name="sch_txt" id="sch_txt" class="sch_txt" placeholder="소환사명 검색">
+                <button class="sch_btn position-absolute">검색</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -74,8 +82,8 @@
             <img src="" alt="">
             <h3>영웅 증강</h3>
             <p>
-              세 가지 중 하나를 선택 해 
-              플레이어 여러분의 슈퍼특공대를 이끌 
+              세 가지 중 하나를 선택 해
+              플레이어 여러분의 슈퍼특공대를 이끌
               챔피언을 강화할 수 있습니다.
             </p>
           </div>
@@ -84,10 +92,10 @@
             <img src="" alt="">
             <h3>위협</h3>
             <p>
-              위협 챔피언은 파괴라는 단 하나의 
-              목표를 갖고 단독으로 행동하는 능력이 
-              뛰어납니다. 위협 챔피언은 같은 단계의 
-              다른 챔피언 보다 강하지만, 특성 중첩 
+              위협 챔피언은 파괴라는 단 하나의
+              목표를 갖고 단독으로 행동하는 능력이
+              뛰어납니다. 위협 챔피언은 같은 단계의
+              다른 챔피언 보다 강하지만, 특성 중첩
               효과를 누릴 수 없습니다.
             </p>
           </div>
@@ -96,9 +104,9 @@
             <img src="" alt="">
             <h3>아이템 모루와 PvE 라운드</h3>
             <p>
-              아이템 모루는 스테이지 4-7 PvE 라운드에 
-              처음으로 등장해 세 가지 조합 아이템 중 하나를 
-              고를 수 있게 해줍니다. 이후 완성 아이템 모루는 
+              아이템 모루는 스테이지 4-7 PvE 라운드에
+              처음으로 등장해 세 가지 조합 아이템 중 하나를
+              고를 수 있게 해줍니다. 이후 완성 아이템 모루는
               스테이지 5-7 및 6-7 PvE 라운드에 등장합니다
             </p>
           </div>
@@ -135,15 +143,15 @@
               <div class="ahl_skill">
                 <p>
                   불타는 도탄
-                  갱플랭크를 획득합니다. 
-                  갱플랭크의 스킬이 다른 대상에게 
+                  갱플랭크를 획득합니다.
+                  갱플랭크의 스킬이 다른 대상에게
                   튀며 60%의 피해를 입힙니다.
                 </p>
                 <p>
                   수금
-                  갱플랭크를 획득합니다. 
-                  갱플랭크를 전장에 배치하면, 아군이 
-                  적을 처치 시 33%의 확률로 1골드를 
+                  갱플랭크를 획득합니다.
+                  갱플랭크를 전장에 배치하면, 아군이
+                  적을 처치 시 33%의 확률로 1골드를
                   획득합니다.
                 </p>
               </div>
@@ -155,17 +163,17 @@
               <div class="ahr_skill">
                 <p>
                   신난다!
-                  징크스를 획득합니다. 
-                  징크스가 처치에 관여하면 5초 동안 
-                  공격 속도와 이동 속도가 110% 
+                  징크스를 획득합니다.
+                  징크스가 처치에 관여하면 5초 동안
+                  공격 속도와 이동 속도가 110%
                   증가합니다.
                 </p>
                 <p>
                   전부 터져라!
-                  징크스를 획득합니다. 
-                  징크스가 전장을 배치하면 모든 
-                  아군의 공격 속도가 9% 증가합니다. 
-                  각 전투에서 적을 처음 처치하면 
+                  징크스를 획득합니다.
+                  징크스가 전장을 배치하면 모든
+                  아군의 공격 속도가 9% 증가합니다.
+                  각 전투에서 적을 처음 처치하면
                   이 효과가 세 배가 됩니다.
                 </p>
               </div>
@@ -193,9 +201,9 @@
 
       <p>© Copyright 2022. onezeun</p>
       <p>
-        This site isn’t endorsed by Riot Games and doesn’t reflect 
-        the views or opinions of Riot Games or anyone officially 
-        involved in producing or managing League of Legends. 
+        This site isn’t endorsed by Riot Games and doesn’t reflect
+        the views or opinions of Riot Games or anyone officially
+        involved in producing or managing League of Legends.
         © Riot Games, Inc.
       </p>
       <a href="#">관리자 로그인</a>

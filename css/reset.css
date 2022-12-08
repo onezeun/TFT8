@@ -64,7 +64,8 @@ select,
 textarea {
   font-family: 'NEXON Lv2 Gothic';
   font-size: 14px;
-  line-height: 1.5
+  line-height: 1.5;
+  color: white;
 }
 
 button {
@@ -89,7 +90,7 @@ li {
 
 a {
   text-decoration: none;
-  color: #000
+  color: white
 }
 
 address {
