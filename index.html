@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,199 @@
   <title>TFT8.0 : 괴물습격</title>
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
 </head>
+
 <body>
-  
+  <div class="wrap">
+    <!-- header -->
+    <header id="header" class="header">
+      <h1 class="logo"><a href="#">전략적팀전투 시즌8</a></h1>
+
+      <nav class="gnb">
+        <h2>주요메뉴</h2>
+        <ul>
+          <li><a href="#">새 소식</a></li>
+          <li>
+            <a href="#">시즌 정보</a>
+            <ul>
+              <li><a href="#">챔피언</a></li>
+              <li><a href="#">시너지</a></li>
+              <li><a href="#">아이템</a></li>
+              <li><a href="#">증강</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="search_box">
+        <form name="" action="" method="">
+          <fieldset>
+            <legend>검색</legend>
+            <label for="sch_txt">입력</label>
+            <input type="text" name="sch_txt" id="sch_txt">
+            <button>검색</button>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+
+    <!-- content -->
+    <main id="content" class="content">
+      <section class="main_info">
+        <h2> TEAMFIGHT TACTICS 괴물습격!</h2>
+        <!-- 모바일, 태블릿 메인 비디오 -->
+        <div class="m_bg">
+          <video class="video-container" autoplay muted loop>
+            <source src="images/tft8.0.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- 데스트탑 배경 -->
+        <div class="pc_bg">
+          <video>시네마틱영상</video>
+          <img src="" alt="럭스">
+        </div>
+
+        <img src="" alt="펭구">
+        <button type="button">무료로 플레이하기</button>
+      </section>
+
+      <div class="cont_wrap">
+        <section class="new_cont">
+          <h2>새로운 게임플레이 요소!</h2>
+          <div class="new_hero">
+            <img src="" alt="">
+            <h3>영웅 증강</h3>
+            <p>
+              세 가지 중 하나를 선택 해 
+              플레이어 여러분의 슈퍼특공대를 이끌 
+              챔피언을 강화할 수 있습니다.
+            </p>
+          </div>
+
+          <div class="new_threat">
+            <img src="" alt="">
+            <h3>위협</h3>
+            <p>
+              위협 챔피언은 파괴라는 단 하나의 
+              목표를 갖고 단독으로 행동하는 능력이 
+              뛰어납니다. 위협 챔피언은 같은 단계의 
+              다른 챔피언 보다 강하지만, 특성 중첩 
+              효과를 누릴 수 없습니다.
+            </p>
+          </div>
+
+          <div class="new_anvil">
+            <img src="" alt="">
+            <h3>아이템 모루와 PvE 라운드</h3>
+            <p>
+              아이템 모루는 스테이지 4-7 PvE 라운드에 
+              처음으로 등장해 세 가지 조합 아이템 중 하나를 
+              고를 수 있게 해줍니다. 이후 완성 아이템 모루는 
+              스테이지 5-7 및 6-7 PvE 라운드에 등장합니다
+            </p>
+          </div>
+        </section>
+
+        <section class="syn_cont">
+          <h2>시너지 소개</h2>
+          <a href="#">전체보기</a>
+          <div class="syn_icon"></div>
+          <div class="syn_info">
+            <h3>별 수호자</h3>
+            <p>모든 마나 획득량이 증가합니다</p>
+            <p>
+              (3) 마나 40%
+              (5) 마나 70%
+              (7) 마나 120%
+              (9) 마나 200%
+            </p>
+
+            <div class="syn_cham">
+
+            </div>
+          </div>
+        </section>
+
+        <section class="agm_cont">
+          <h2>영웅증강</h2>
+          <a href="#">전체보기</a>
+          <div class="agm_hero_wrap">
+            <div class="agm_hero_left">
+              <img src="" alt="">
+              <h3>갱플랭크</h3>
+              <p>우세 결투가</p>
+              <div class="ahl_skill">
+                <p>
+                  불타는 도탄
+                  갱플랭크를 획득합니다. 
+                  갱플랭크의 스킬이 다른 대상에게 
+                  튀며 60%의 피해를 입힙니다.
+                </p>
+                <p>
+                  수금
+                  갱플랭크를 획득합니다. 
+                  갱플랭크를 전장에 배치하면, 아군이 
+                  적을 처치 시 33%의 확률로 1골드를 
+                  획득합니다.
+                </p>
+              </div>
+            </div>
+            <div class="agm_hero_right">
+              <img src="" alt="">
+              <h3>징크스</h3>
+              <p>동물특공대 익살꾼</p>
+              <div class="ahr_skill">
+                <p>
+                  신난다!
+                  징크스를 획득합니다. 
+                  징크스가 처치에 관여하면 5초 동안 
+                  공격 속도와 이동 속도가 110% 
+                  증가합니다.
+                </p>
+                <p>
+                  전부 터져라!
+                  징크스를 획득합니다. 
+                  징크스가 전장을 배치하면 모든 
+                  아군의 공격 속도가 9% 증가합니다. 
+                  각 전투에서 적을 처음 처치하면 
+                  이 효과가 세 배가 됩니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="link_wrap">
+        <p>지금 시작하세요</p>
+        <button type="button">무료로 플레이하기</button>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer id="footer" class="footer">
+      <h2 class="hide">사이트 이용 안내</h2>
+      <div class="footer_link">
+        <ul>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">문의 및 피드백</a></li>
+        </ul>
+      </div>
+
+      <p>© Copyright 2022. onezeun</p>
+      <p>
+        This site isn’t endorsed by Riot Games and doesn’t reflect 
+        the views or opinions of Riot Games or anyone officially 
+        involved in producing or managing League of Legends. 
+        © Riot Games, Inc.
+      </p>
+      <a href="#">관리자 로그인</a>
+    </footer>
+  </div>
 </body>
+
 </html>
