@@ -17,6 +17,7 @@
 .container {
   padding: 0;
 }
+
 .gnb {
   width: 100%;
 }
@@ -121,3 +122,137 @@
   transform: translate(-50%, -15%);
   z-index: 4;
 }
+
+.cont_wrap {
+  margin: auto;
+  padding:0 5%;
+}
+
+h2 {
+  font-family: 'RixYeoljeongdo_Regular';
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cst_card {
+  padding: 0;
+  background: rgba(130, 130, 130, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.3);
+}
+
+.cst_card_txt {
+  padding: 20px;
+}
+
+.cst_card_txt h3{
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.cst_card_txt p {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.cst_card img{
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.all_view {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  background: #7d6391;
+  border-radius: 5px;
+  margin: 0 0 10px 10px;
+}
+
+.all_view:hover {
+  color: white;
+  background: #73429b;
+}
+
+.syn_cont {
+  margin: 80px 0;
+}
+
+.syn_title_wrap {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.syn_title_wrap h2{
+  margin: 0 auto 5px;
+}
+
+.syn_card{
+  margin: auto;
+  width: 90%;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  background: linear-gradient(190deg, #4f4e4e 10%,#282828 90%, #4f4e4e );
+  padding: 20px;
+  position: relative;
+}
+
+.syn_symbol {
+  position: absolute;
+  top: -41px;
+  right:-6%;
+  width: 157px;
+  height: 178px;
+  background: url(../images/ico_symbol.png);
+}
+
+.syn_txt {
+  text-align: left;
+  width: 60%;
+}
+
+.syn_txt h3{
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.syn_txt p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.syn_txt pre {
+  font-size: 18px;
+  margin: 10px 0;
+  color:#ccc
+}
+
+.syn_cham_list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  margin: 0;
+}
+
+.syn_cham_list div{
+  width: 50%;
+  max-width: 80px;
+  max-height: 80px;
+  margin: 2px;
+  border: 3px solid#ccc;
+  border-radius: 5px;
+}
+
+.syn_cham_list div:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+

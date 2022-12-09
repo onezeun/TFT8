@@ -61,7 +61,8 @@ body,
 button,
 option,
 select,
-textarea {
+textarea,
+pre {
   font-family: 'NEXON Lv2 Gothic';
   font-size: 16px;
   line-height: 1.5;
@@ -103,6 +104,7 @@ input::placeholder {color:#8c8c8c;}
 /* 공통클래스 */
 body {
   background: linear-gradient(#361d4a 50%,#cc7f9e 80%, #ddb2a5 );
+
   height: 100%;
 }
 
