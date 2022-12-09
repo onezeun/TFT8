@@ -20,13 +20,24 @@
   <div class="wrap">
     <!-- header -->
     <header id="header" class="header">
-      <div class="container align-self-center p-2">
-        <div class="row position-relative justify-content-between">
+      <div class="container align-self-center p-2 ">
+        <div class="row justify-content-center position-relative header_wrap">
           <div class="col logo_wrap align-self-center">
             <h1 class="logo txt_hide"><a href="#">전략적팀전투 시즌8</a></h1>
           </div>
 
-          <div class="col gnb order-1">
+          <div class="col-8 search_box position-relative align-self-center">
+            <form name="" action="" method="">
+              <fieldset>
+                <legend class="hide">검색</legend>
+                <label for="sch_txt" class="hide">입력</label>
+                <input type="text" name="sch_txt" id="sch_txt" class="sch_txt" placeholder="소환사명 검색">
+                <button class="sch_btn position-absolute">검색</button>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="col gnb">
             <h2 class="gnb_btn txt_hide position-absolute">주요메뉴</h2>
             <ul class="main_menu">
               <li><a href="#">새 소식</a></li>
@@ -40,17 +51,6 @@
                 </ul>
               </li>
             </ul>
-          </div>
-
-          <div class="col-8 search_box position-relative align-self-center">
-            <form name="" action="" method="">
-              <fieldset>
-                <legend class="hide">검색</legend>
-                <label for="sch_txt" class="hide">입력</label>
-                <input type="text" name="sch_txt" id="sch_txt" class="sch_txt" placeholder="소환사명 검색">
-                <button class="sch_btn position-absolute">검색</button>
-              </fieldset>
-            </form>
           </div>
         </div>
       </div>
@@ -161,45 +161,51 @@
           </div>
           <div class="agm_hero_wrap">
             <div class="agm_hero_left">
-              <img src="" alt="">
-              <h3>갱플랭크</h3>
-              <p>우세 결투가</p>
-              <div class="ahl_skill">
+              <div class="agm_txt">
+                <h3>갱플랭크</h3>
                 <p>
-                  불타는 도탄
-                  갱플랭크를 획득합니다.
-                  갱플랭크의 스킬이 다른 대상에게
-                  튀며 60%의 피해를 입힙니다.
+                  <span>우세</span>
+                  <span>결투가</span>
                 </p>
-                <p>
-                  수금
-                  갱플랭크를 획득합니다.
-                  갱플랭크를 전장에 배치하면, 아군이
-                  적을 처치 시 33%의 확률로 1골드를
-                  획득합니다.
-                </p>
+                <div class="ahl_skill">
+                  <p>
+                    <span class="skill_title">불타는 도탄</span>
+                    갱플랭크를 획득합니다.
+                    갱플랭크의 스킬이 다른 대상에게
+                    튀며 60%의 피해를 입힙니다.
+                  </p>
+                  <p>
+                    <span class="skill_title">수금</span>
+                    갱플랭크를 획득합니다.
+                    갱플랭크를 전장에 배치하면, 아군이
+                    적을 처치 시 33%의 확률로 1골드를
+                    획득합니다.
+                  </p>
+                </div>
               </div>
             </div>
+
             <div class="agm_hero_right">
-              <img src="" alt="">
-              <h3>징크스</h3>
-              <p>동물특공대 익살꾼</p>
-              <div class="ahr_skill">
-                <p>
-                  신난다!
-                  징크스를 획득합니다.
-                  징크스가 처치에 관여하면 5초 동안
-                  공격 속도와 이동 속도가 110%
-                  증가합니다.
-                </p>
-                <p>
-                  전부 터져라!
-                  징크스를 획득합니다.
-                  징크스가 전장을 배치하면 모든
-                  아군의 공격 속도가 9% 증가합니다.
-                  각 전투에서 적을 처음 처치하면
-                  이 효과가 세 배가 됩니다.
-                </p>
+              <div class="agm_txt">
+                <h3>징크스</h3>
+                <p>동물특공대 익살꾼</p>
+                <div class="ahr_skill">
+                  <p>
+                    <span class="skill_title">신난다!</span>
+                    징크스를 획득합니다.
+                    징크스가 처치에 관여하면 5초 동안
+                    공격 속도와 이동 속도가 110%
+                    증가합니다.
+                  </p>
+                  <p>
+                    <span class="skill_title">전부 터져라!</span>
+                    징크스를 획득합니다.
+                    징크스가 전장을 배치하면 모든
+                    아군의 공격 속도가 9% 증가합니다.
+                    각 전투에서 적을 처음 처치하면
+                    이 효과가 세 배가 됩니다.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -207,8 +213,14 @@
       </div>
 
       <div class="link_wrap">
-        <p>지금 시작하세요</p>
-        <button type="button">무료로 플레이하기</button>
+        <p>지금<br>시작하세요</p>
+        <button type="button" class="link_btn">무료로 플레이하기</button>
+        <div class="bot_bg_wrap">
+          <img src="images/mainbg/layer-2.png" alt="전장" class="bot_bg_main">
+          <img src="images/mainbg/layer-1.png" alt="왼쪽" class="bot_bg_left">
+          <img src="images/mainbg/layer-3.png" alt="오른쪽" class="bot_bg_right">
+          <img src="images/mainbg/layer-background.png" alt="뒷배경" class="bot_bg_back">
+        </div>
       </div>
     </main>
 
