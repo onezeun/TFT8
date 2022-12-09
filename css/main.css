@@ -8,15 +8,17 @@
   align-content: center;
 }
 
+.header_wrap {
+  width: 100%;
+  margin: auto;
+}
+
 .logo {
   width: 50px;
   height: 50px;
   background: url(../images/TFT_logo.png) no-repeat;
 }
 
-.container {
-  padding: 0;
-}
 
 .gnb {
   width: 100%;
@@ -26,7 +28,7 @@
   width: 46px;
   height: 36px;
   background: url(../images/gnb_btn.png) no-repeat;
-  right: 10px;
+  right: 0;
   top: 15px;
 }
 
@@ -140,6 +142,8 @@ h2 {
   background: rgba(130, 130, 130, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: auto;
 }
 
 .cst_card_txt {
@@ -181,7 +185,7 @@ h2 {
 }
 
 .syn_cont {
-  margin: 80px 0;
+  margin: 150px 0;
 }
 
 .syn_title_wrap {
@@ -201,6 +205,7 @@ h2 {
   background: linear-gradient(190deg, #4f4e4e 10%,#282828 90%, #4f4e4e );
   padding: 20px;
   position: relative;
+  max-width: 505px;
 }
 
 .syn_symbol {
@@ -214,7 +219,7 @@ h2 {
 
 .syn_txt {
   text-align: left;
-  width: 60%;
+  width: 65%;
 }
 
 .syn_txt h3{
@@ -243,8 +248,8 @@ h2 {
 
 .syn_cham_list div{
   width: 50%;
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 23%;
+  max-height: 23%;
   margin: 2px;
   border: 3px solid#ccc;
   border-radius: 5px;
@@ -256,3 +261,102 @@ h2 {
   padding-bottom: 100%;
 }
 
+.agm_hero_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.agm_txt {
+  padding: 15px;
+}
+
+.agm_hero_left {
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0,0,0,0) 10%,
+    rgba(0,0,0,0.5) 25%,
+    rgba(0,0,0,0.8) 40%,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,1) 75%,
+    rgba(0,0,0,1) 100%
+    ), url(../images/Supers_우세/Gangplank.jpg) no-repeat;
+    background-size: 110%, 250%;
+    background-position: 80% top;
+  margin-right: 1%;
+  box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
+  max-width: 270px;
+}
+
+.agm_txt {
+  margin-top: 20em;
+}
+
+.agm_hero_right {
+  margin-top: 100px;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0,0,0,0) 10%,
+    rgba(0,0,0,0.5) 25%,
+    rgba(0,0,0,0.8) 40%,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,1) 75%,
+    rgba(0,0,0,1) 100%
+    ), url(../images/AnimaSquad_동물특공대/Jinx.jpg) no-repeat;
+    background-size: 110%, 250%;
+    background-position: 80% top;
+  margin-left: 2%;
+  box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
+  max-width: 270px;
+}
+
+.skill_title{
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.link_wrap {
+  margin-top: 200px;
+  height: 100vh;
+  text-align: center;
+}
+
+.link_wrap p {
+  font-family: 'RixYeoljeongdo_Regular';
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.link_btn {
+  font-family: 'RixYeoljeongdo_Regular';
+  font-size: 1.8rem;
+  width: 80%;
+  height: 70px;
+  background-color: #7d6391;
+  border: none;
+  border-radius: 10px;
+  z-index: 4;
+}
+
+.bot_bg_wrap {
+  position: relative;
+}
+
+.bot_bg_wrap img {
+  width: 100%;
+  position: absolute;
+  top: 20vh;
+  left: 0;
+}
+
+.bot_bg_main{
+  z-index: 4;
+}
+
+.bot_bg_left, .bot_bg_right {
+  z-index: 1;
+}
