@@ -3,10 +3,12 @@
   width: 100%;
   height: 100px;
   background: #282828;
+  position: fixed;
+  z-index: 100;
 }
 
 .header_wrap {
-  max-width: 640px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
   position: relative;
@@ -53,23 +55,91 @@
   top: 25px;
 }
 
+
 .gnb {
   width: 50px;
+  display: block;
+  position: relative;
+  z-index: 10;
+  user-select: none;
 }
 
-.gnb_btn {
-  width: 46px;
-  height: 36px;
-  background: url(../images/gnb_btn.png) no-repeat;
-  margin-top: 28px;
+.gnb input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  z-index: 12;
+}
+
+.gnb span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
+}
+
+.gnb span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.gnb span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.gnb input:checked~span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #cdcdcd;
+}
+
+.gnb input:checked~span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.gnb input:checked~span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
 }
 
 .main_menu {
-  display: none;
+  position: fixed;
+  width: 300px;
+  height: 110%;
+  top:0;
+  right: -300px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #282828;
 }
 
+.main_menu li {
+  font-size: 22px;
+}
 
 /* content */
+.content {
+  padding-top: 100px;
+}
+
 .main_info {
   height: 100vh;
   width: 100%;
@@ -439,6 +509,40 @@ h2 {
 
 
 @media screen and (min-width:1000px) {
+  /* header */
+  .header{
+    position: static;
+  }
+
+  .header_wrap {
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .gnb {
+    width: 250px;
+  }
+
+  .gnb input, .gnb span, .sub_menu {
+    display: none;
+  }
+
+  .main_menu {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'RixYeoljeongdo_Regular';
+    position:static;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    padding-top: 0;
+    background: none;
+  }
+
+  .content {
+    padding-top: 0;
+  }
+
   .main_title_wrap {
     display: none;
   }
