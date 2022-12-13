@@ -55,7 +55,6 @@
   top: 25px;
 }
 
-
 .gnb {
   width: 50px;
   display: block;
@@ -161,14 +160,19 @@
   background-size: cover;
 }
 
-.m_main_chr {
+.m_chr_wrap {
+  width: 70%;
+  max-width: 357px;
   position: absolute;
-  width: 357px;
-  height: 401px;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
   z-index: 3;
+}
+
+.m_main_chr {
+  max-width: 100%;
+  height: auto;
 }
 
 .m_bg {
@@ -195,7 +199,7 @@
 
 .main_btn {
   font-family: 'RixYeoljeongdo_Regular';
-  font-size: 2rem;
+  font-size: 1.7rem;
   width: 80%;
   height: 70px;
   background-color: #7d6391;
@@ -222,7 +226,7 @@ h2 {
 
 .cst_card {
   padding: 0;
-  background: rgba(130, 130, 130, 0.3);
+  background: #4d3b5b;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.3);
   max-width: 500px;
@@ -268,21 +272,33 @@ h2 {
 }
 
 .syn_cont {
-  margin: 150px 0;
+  margin: 150px auto;
+  position: relative;
 }
 
 .syn_title_wrap {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .syn_title_wrap h2{
   margin: 0 auto 5px;
 }
 
-.syn_card{
+.syn_slide {
   margin: auto;
-  width: 90%;
+  width:80%;
+  text-align: center;
+}
+
+.syn_card_wrap {
+  padding: 40px 2% 0;
+}
+
+.syn_card{
+  display: block !important;
+  margin: auto;
+  width: 100%;
   border: 3px solid rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   background: linear-gradient(190deg, #4f4e4e 10%,#282828 90%, #4f4e4e );
@@ -302,7 +318,7 @@ h2 {
 
 .syn_txt {
   text-align: left;
-  width: 65%;
+  width: 60%;
 }
 
 .syn_txt h3{
@@ -507,6 +523,18 @@ h2 {
   display: none;
 }
 
+.main_line {
+  display: none;
+}
+
+.cst_lux_wrap {
+  display: none;
+}
+
+.syn_arrow {
+display: none ;
+}
+
 
 @media screen and (min-width:1000px) {
   /* header */
@@ -538,6 +566,8 @@ h2 {
     padding-top: 0;
     background: none;
   }
+
+  /* content */
 
   .content {
     padding-top: 0;
@@ -590,9 +620,9 @@ h2 {
   .cinematic_wrap {
     position: relative;
     width: 100%;
-    padding-bottom:44.5%;
+    padding-bottom:50%;
     max-width: 1200px;
-    margin: 100px auto 10px;
+    margin: 150px auto 10px;
   }
 
   
@@ -622,7 +652,82 @@ h2 {
   .lux {
     max-width: 100%;
     height: auto;
-    background: url(../images/lux.png) no-repeat;
-    background-size: cover;
+  }
+
+  /* new */
+
+  .new_cont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .new_hero {
+    position: absolute;
+    top:5%;
+    left: -30%;
+  }
+
+  .new_threat {
+    position: absolute;
+    top:50%;
+    right: -40%;
+  }
+
+  .new_anvil {
+    position: absolute;
+    top:99%;
+    left: -20%;
+  }
+
+  .cst_lux_wrap {
+    display: block;
+    width: 30%;
+    max-width: 400px;
+    min-width: 300px;
+    position: absolute;
+    top: 27.2%;
+    right: -30%;
+  }
+
+  .cst_lux {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .line_wrap {
+    margin: 6% auto 0;
+  }
+
+  .main_line {
+    display: block;
+    max-width: 100%;
+  }
+
+  .syn_cont {
+    margin-top: 600px;
+  }
+
+  .syn_arrow {
+    display: block;
+  }
+
+  .syn_prev {
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 100px;
+  }
+
+  .syn_next {
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    right: 100px;
   }
 }
+

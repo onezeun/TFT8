@@ -8,11 +8,14 @@
   <title>TFT8.0 : 괴물습격</title>
   <link rel="shortcut icon" href="images/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/slick.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </head>
 
@@ -70,7 +73,9 @@
             <source src="images/tft8.0.mp4" type="video/mp4">
           </video>
           <img src="images/m_bg01.png" alt="모바일배경" class="m_sub_bg">
-          <img src="images/pc_main_chr.png" alt="펭구" class="m_main_chr">
+          <div class="m_chr_wrap">
+            <img src="images/pc_main_chr.png" alt="펭구" class="m_main_chr">
+          </div>
           <button type="button" class="main_btn">무료로 플레이하기</button>
         </div>
         <!-- 데스트탑 배경 -->
@@ -134,6 +139,12 @@
               </p>
             </div>
           </div>
+          <div class="cst_lux_wrap">
+            <img src="images/cst_lux.png" alt="럭스" class="cst_lux">
+          </div>
+          <div class="line_wrap">
+            <img src="images/main_line.png" class="main_line">
+          </div>
         </section>
 
         <section class="syn_cont">
@@ -141,30 +152,100 @@
             <h2>시너지 소개</h2>
             <a href="#" class="all_view">전체보기</a>
           </div>
-          <div class="syn_card">
-            <div class="syn_symbol">
-              <div class="syn_icon"></div>
-            </div>
-            <div class="syn_txt">
-              <h3>별 수호자</h3>
-              <p>모든 마나 획득량이 증가합니다</p>
-              <pre>(3) 마나 40%
+          <div class="syn_slide">
+            <div class="syn_card_wrap">
+              <div class="syn_card">
+                <div class="syn_symbol">
+                  <div class="syn_icon"></div>
+                  <img src="images/ico_symbol.png" alt="">
+                </div>
+                <div class="syn_txt">
+                  <h3>별 수호자</h3>
+                  <p>모든 마나 획득량이 증가합니다</p>
+                  <pre>
+  (3) 마나 40%
   (5) 마나 70%
   (7) 마나 120%
   (9) 마나 200%</pre>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+              </div>
             </div>
-            <div class="syn_cham_list">
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
+
+            <div class="syn_card_wrap">
+              <div class="syn_card">
+                <div class="syn_symbol">
+                  <div class="syn_icon"></div>
+                  <img src="images/ico_symbol.png" alt="">
+                </div>
+                <div class="syn_txt">
+                  <h3>별 수호자</h3>
+                  <p>모든 마나 획득량이 증가합니다</p>
+                  <pre>
+  (3) 마나 40%
+  (5) 마나 70%
+  (7) 마나 120%
+  (9) 마나 200%</pre>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+              </div>
             </div>
-            <div class="syn_cham_list">
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
-              <div class="syn_cham01"></div>
+
+            <div class="syn_card_wrap">
+              <div class="syn_card">
+                <div class="syn_symbol">
+                  <div class="syn_icon"></div>
+                  <img src="images/ico_symbol.png" alt="">
+                </div>
+                <div class="syn_txt">
+                  <h3>별 수호자</h3>
+                  <p>모든 마나 획득량이 증가합니다</p>
+                  <pre>
+  (3) 마나 40%
+  (5) 마나 70%
+  (7) 마나 120%
+  (9) 마나 200%</pre>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+                <div class="syn_cham_list">
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                  <div class="syn_cham01"></div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="syn_arrow">
+            <a href="#" class="syn_prev"><</a>
+            <a href="#" class="syn_next">></a>
           </div>
         </section>
 
@@ -222,7 +303,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
 
