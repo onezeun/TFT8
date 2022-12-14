@@ -360,6 +360,19 @@ h2 {
   padding-bottom: 100%;
 }
 
+.agm_cont{
+  position: relative;
+}
+
+.agm_slide {
+  margin: auto;
+}
+
+.agm_wrap {
+  padding: 40px 2%;
+}
+
+
 .agm_hero_wrap {
   display: flex;
   justify-content: center;
@@ -531,7 +544,7 @@ h2 {
   display: none;
 }
 
-.syn_arrow {
+.slide_arrow {
 display: none ;
 }
 
@@ -710,11 +723,11 @@ display: none ;
     margin-top: 600px;
   }
 
-  .syn_arrow {
+  .slide_arrow {
     display: block;
   }
 
-  .syn_prev {
+  .slide_prev {
     font-size: 50px;
     font-weight: bold;
     position: absolute;
@@ -722,7 +735,7 @@ display: none ;
     left: 100px;
   }
 
-  .syn_next {
+  .slide_next {
     font-size: 50px;
     font-weight: bold;
     position: absolute;
