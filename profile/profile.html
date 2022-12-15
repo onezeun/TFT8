@@ -6,14 +6,92 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>소환사이름 - 전적 TFT8.0</title>
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/profile.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+  <script type="text/javascript" src="../js/includ.js"></script>
+  <script type="text/javascript" src="../js/profile.js"></script>
 </head>
 
 <body>
+  <div class="wrap">
+    <!-- header -->
+    <header>
+      <div id="header-include"></div>
+    </header>
 
+    <!-- content -->
+    <main id="content" class="content">
+      <section class="user">
+        <div class="user_img">
+          <img src="../images/ADMIN_자동방어체계/i_Camille.jpg" alt="사용자 이미지">
+        </div>
+        <div class="user_info">
+          <div class="user_name">닉네임</div>
+          <div class="user_refresh">
+            <button type="button" class="rfrs_btn">전적갱신</button>
+            <p class="rfrs_txt">최근업데이트 : 2시간 전</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rank">
+        <div class="rank_img">
+
+        </div>
+        <div class="rank_info">
+          <div class="tier_wrap">
+            <span class="tier">Gold 1</span>
+            <span class="point">75 LP</span>
+            <hr>
+            <span class="percent">상위 26.9%</span>
+            <span class="ranking">304,411 위</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart">
+        <p>최근 20게임 등수(랭크)</p>
+        <div class="chart_info">
+          <div class="avg">
+            <p class="ci_txt01">평균등수</p>
+            <p class="ci_txt02"># 4.5</p>
+          </div>
+          <div class="cnt">
+            <p class="ci_txt01">1등 횟수</p>
+            <p class="ci_txt02">1</p>
+          </div>
+          <div class="top_cnt">
+            <p class="ci_txt01">TOP 횟수</p>
+            <p class="ci_txt02">10</p>
+          </div>
+        </div>
+        <canvas class="user_chart"></canvas>
+      </section>
+
+
+      <section class="history">
+        <p>매치 히스토리(랭크)</p>
+        <div class="summary">
+          <span class="p_time">플레이타임</span>
+          <span class="p_day">플레이날짜</span>
+        </div>
+        <div class="traits">특성</div>
+        <div class="augments">증강</div>
+        <div class="units">유닛</div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <div id="footer-include"></div>
+    </footer>
+  </div>
 </body>
 
 </html>
