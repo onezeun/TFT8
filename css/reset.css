@@ -108,9 +108,9 @@ body {
   height: 100%;
 }
 
-header {
-  height: 200px;
-}
+/* header {
+  height: 100px;
+} */
 
 .hide {
   position: absolute;
