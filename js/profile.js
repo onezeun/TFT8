@@ -1,4 +1,17 @@
 $(document).ready(function () {
+  var search_name = localStorage.getItem("search_name");
+  var api_key = "RGAPI-8d85bbe7-a348-4906-96c3-062df7d0f453";
+  console.log(search_name);
+
+  $.ajax({
+    url:
+      "https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/" +search_name +"?api_key=" +api_key,
+    type: "GET",
+    dataType: "json",
+  }).done(function (data) {
+    console.log(data);
+  });
+
   // 차트
   var chartArea = document.querySelector("canvas").getContext("2d");
 
