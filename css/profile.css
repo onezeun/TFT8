@@ -1,0 +1,224 @@
+/* content */
+.content {
+  max-width: 1200px;
+  margin: auto;
+  /* background: rgb(255, 255, 255, 0.5); */
+  background: white;
+  color: black;
+  padding-top: 100px;
+  font-size: 1.6em;
+}
+
+.user {
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+  background: url(../images/profile_bg01.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  padding: 20px 5%;
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+}
+
+.user_img {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.user_info {
+  margin-left: 20px;
+  max-height: 120px;
+}
+
+.user_name {
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.rfrs_btn {
+  width: 60%;
+  height: 40px;
+  background: #1ca983;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.rank {
+  background: white;
+  border-bottom: 2px solid #ccc;
+  margin: 0 20px;
+  padding: 20px 3%;
+  display: flex;
+  align-items: center;
+}
+
+.rank_info {
+  margin-left: 30px;
+  width: 100%;
+  max-width: 850px;
+}
+
+.rank_txt_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tier {
+ color: #f5b440;
+ font-weight: bold;
+ font-size: 1.2rem;
+}
+
+.point {
+  font-size: 1.2rem;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background: #ccc;
+  margin: 7px 0;
+}
+
+.percent, .ranking {
+  color:#8c8c8c
+}
+
+.chart {
+  background: white;
+  border-bottom: 2px solid #ccc;
+  margin: 0 20px;
+  padding: 10px 3%;
+}
+
+.section_title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.chart_info {
+  min-width: 450px;
+  max-width: 550px;
+  margin: 30px auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.ci_txt01 {
+  color: #8c8c8c;
+  font-size: 0.9rem;
+}
+
+.ci_txt02 {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.chart_val {
+  width: 100%;
+  max-height: 106px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.one_box {
+  position: relative;
+  width: 9%;
+  color: white;
+  background: #1ca983;
+  border-radius: 10px;
+  text-align: center;
+  margin: 2px;
+  font-size: 1em;
+}
+
+.one_box::after {
+  display: block;
+  content: "";
+  padding-bottom: 100%;
+}
+
+.one_txt{
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_chart {
+  max-width: 1000px;
+  max-height: 300px;
+}
+
+.history {
+  background: white;
+  margin: 0 20px;
+  padding: 10px 3%;
+}
+
+.history_cont_wrap {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.history_rank {
+  width: 10%;
+  background: #1ca983;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history_cont {
+  padding: 10px;
+}
+
+.summary {
+  font-size: 0.8em;
+  color: #8c8c8c;
+}
+@media screen and (min-width:1000px) {
+  .content {
+    padding-top: 0;
+  }
+
+  .one_box {
+    font-size: 1.3em;
+  }
+
+  .chart_flex_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .history_flex_box {
+    display: flex;
+    align-items: center;
+  }
+
+  .user_chart {
+    margin-left: 30px;
+    max-width: 450px;
+    max-height: 250px;
+  }
+}
