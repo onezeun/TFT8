@@ -2,16 +2,41 @@ $(document).ready(function () {
   var search_name = localStorage.getItem("search_name");
   var api_key = "RGAPI-8d85bbe7-a348-4906-96c3-062df7d0f453";
   console.log(search_name);
-
   $.ajax({
-    url:
-      "https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/" +search_name +"?api_key=" +api_key,
+    url:"https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/"+ search_name +"?api_key=" +api_key,
     type: "GET",
     dataType: "json",
-  }).done(function (data) {
-    console.log(data);
-  });
-
+  })
+    .done(function (data) {
+      console.log(data);
+      $(".user_name").text(data.name);
+      $("#user_id").val(data.id);
+      $("#puuid").val(data.puuid);
+      console.log(data.puuid)
+    })
+    .then(() => {
+      var user_id = $("#user_id").val();
+      $.ajax({
+        url:"https://kr.api.riotgames.com/tft/league/v1/entries/by-summoner/"+ user_id +"?api_key=" +api_key,
+        type: "GET",
+        dataType: "json",
+      }).done(function(data) {
+        // 유저 티어 정보
+        console.log(data);
+      })
+      .then(() => {
+        var puuid = $("#puuid").val();
+        $.ajax({
+          url:"https://cors-anywhere.herokuapp.com/https://asia.api.riotgames.com/tft/match/v1/matches/by-puuid/"+ puuid +"/ids?start=0&count=20",
+          type: "GET",
+          dataType: "json",
+        }).done(function(data) {
+          // 매치ID 가져오기
+          console.log(data);
+        })
+      })
+    });
+    
   // 차트
   var chartArea = document.querySelector("canvas").getContext("2d");
 
