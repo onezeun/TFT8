@@ -26,28 +26,32 @@
     </header>
 
     <!-- content -->
+    <div class="err_box">
+      <img src="../images/err_chr.gif" alt="에러안내">
+      <p><span id="srch_txt" class="srch_txt"></span> 소환사를 찾을 수 없습니다.</p>
+    </div>
     <main id="content" class="content">
       <section class="user">
         <div class="user_img">
-          <img src="../images/ADMIN_자동방어체계/i_Camille.jpg" alt="사용자 이미지">
+          <img src="" alt="사용자 이미지" id="u_img" class="u_img">
         </div>
         <div class="user_info">
           <div class="user_name">닉네임</div>
           <div class="user_refresh">
             <button type="button" class="rfrs_btn">전적갱신</button>
-            <p class="rfrs_txt">최근업데이트 : 2시간 전</p>
+            <p class="rfrs_txt">최근업데이트 : 방금 전</p>
           </div>
         </div>
       </section>
 
       <section class="rank">
         <div class="rank_img">
-          <img src="../images/gold.png" alt="사용자 랭크">
+          <img id="ranked_emblems" class="ranked_emblems" src="" alt="사용자 랭크">
         </div>
         <div class="rank_info">
           <div class="rank_txt_wrap">
-            <span class="tier">Gold 1</span>
-            <span class="point">75 LP</span>
+            <span class="tier_wrap"><span id="tier"></span> <span id="rank"></span></span>
+            <span class="point_wrap"><span id="point"></span> LP</span>
           </div>
           <div class="line"></div>
           <div class="rank_txt_wrap">
@@ -58,84 +62,24 @@
       </section>
 
       <section class="chart">
-        <p class="section_title">최근 20게임 등수(랭크)</p>
+        <p class="section_title">최근 20게임 등수</p>
         <div class="chart_flex_box">
           <div class="chart_cont_wrap">
             <div class="chart_info">
               <div class="avg">
                 <p class="ci_txt01">평균등수</p>
-                <p class="ci_txt02"># 4.5</p>
+                <p class="ci_txt02" id="avg_rank"># 4.5</p>
               </div>
               <div class="cnt">
                 <p class="ci_txt01">1등 횟수</p>
-                <p class="ci_txt02">1</p>
+                <p class="ci_txt02" id="first_rank"></p>
               </div>
               <div class="top_cnt">
                 <p class="ci_txt01">TOP 횟수</p>
-                <p class="ci_txt02">10</p>
+                <p class="ci_txt02" id="top_rank">10</p>
               </div>
             </div>
             <div class="chart_val">
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
-              <div class="one_box">
-                <div class="one_txt">1</div>
-              </div>
             </div>
           </div>
           <canvas class="user_chart" style="width: 80vw; height: 50vh"></canvas>
@@ -143,22 +87,9 @@
       </section>
 
 
-      <section class="history">
-        <p class="section_title">매치 히스토리(랭크)</p>
-        <div class="history_cont_wrap">
-          <div class="history_rank">#1</div>
-          <div class="history_cont">
-            <div class="summary">
-              <span class="p_time">플레이타임</span>
-              <span class="p_day">플레이날짜</span>
-            </div>
-            <div class="history_flex_box">
-              <div class="traits">특성</div>
-              <div class="augments">증강</div>
-            </div>
-            <div class="units">유닛</div>
-          </div>
-        </div>
+      <section id="history" class="history">
+        <p class="section_title">매치 히스토리</p>
+        <div id="history_each_wrap"></div>
       </section>
     </main>
 
