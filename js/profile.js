@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var search_name = localStorage.getItem("search_name");
-  var api_key = "RGAPI-0ab1d492-d7d9-4c85-a25a-72490f8c670a";
+  var api_key = "RGAPI-7f429815-4015-4952-8c97-5180fec38c2b";
 
   // 전역 변수 설정
   var user_id;
@@ -38,18 +38,18 @@ $(document).ready(function () {
     const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
 
     if (betweenTime < 1) {
-      game_time = "방금전";
+      game_day = "방금전";
     } else if (betweenTime > 1 && betweenTime < 60) {
-      game_time = `${betweenTime}분전`;
+      game_day = `${betweenTime}분전`;
     } else if (betweenTime > 60 && betweenTime < 1440) {
-      game_time = `${betweenTimeHour}시간전`;
+      game_day = `${betweenTimeHour}시간전`;
     } else if (betweenTime > 1440) {
-      game_time = `${betweenTimeDay}일전`;
+      game_day = `${betweenTimeDay}일전`;
     }
   }
 
   $.ajax({
-    url:"https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/" +search_name +"?api_key=" +api_key,
+    url: "https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/" + search_name + "?api_key=" + api_key,
     type: "GET",
     async: false,
     dataType: "json",
@@ -66,13 +66,13 @@ $(document).ready(function () {
   })
     .done(function (data) {
       $(".user_name").text(data.name);
-      $("#u_img").attr("src","http://ddragon.leagueoflegends.com/cdn/12.23.1/img/profileicon/" +data.profileIconId +".png");
+      $("#u_img").attr("src", "http://ddragon.leagueoflegends.com/cdn/12.23.1/img/profileicon/" + data.profileIconId + ".png");
       user_id = data.id;
       puu_id = data.puuid;
     })
     .then(() => {
       $.ajax({
-        url:"https://kr.api.riotgames.com/tft/league/v1/entries/by-summoner/" +user_id +"?api_key=" +api_key,
+        url: "https://kr.api.riotgames.com/tft/league/v1/entries/by-summoner/" + user_id + "?api_key=" + api_key,
         type: "GET",
         async: false,
         dataType: "json",
@@ -87,6 +87,7 @@ $(document).ready(function () {
             $("#rank").text("UNLANKED");
             $(".point_wrap").hide();
           } else {
+            console.log(data)
             // 유저 티어 정보
             $(".point_wrap").show();
             $("#tier").text(data[0].tier);
@@ -135,11 +136,12 @@ $(document).ready(function () {
             }
             rm.attr("src", rank_src);
             rc.css("color", rank_color);
+            console.log(rank_src)
           }
         })
         .then(() => {
           $.ajax({
-            url:"https://asia.api.riotgames.com/tft/match/v1/matches/by-puuid/" +puu_id +"/ids?start=0&count=20&api_key=" +api_key,
+            url: "https://asia.api.riotgames.com/tft/match/v1/matches/by-puuid/" + puu_id + "/ids?start=0&count=20&api_key=" + api_key,
             type: "GET",
             async: false,
             dataType: "json",
@@ -147,9 +149,10 @@ $(document).ready(function () {
             // 매치ID 가져오기
             match_id = data;
           });
-          match_id.map((game, i) => {
-            console.log(game)
-            $.ajax({url:"https://asia.api.riotgames.com/tft/match/v1/matches/" +game +"?api_key=" +api_key,type: "GET",
+          $.map(match_id, (game, i) => {
+            $.ajax({
+              url: "https://asia.api.riotgames.com/tft/match/v1/matches/" + game + "?api_key=" + api_key,
+              type: "GET",
               async: false,
               dataType: "json",
             }).done(function (data) {
@@ -167,54 +170,334 @@ $(document).ready(function () {
                   game_type = "더블업";
                   break;
               }
+              participants = data.info.participants
               time(data.info.game_length);
-              // day(data.info.game_datetime);
-              // console.log(game_time);
-              participants.map(participants, (player, i) => {
+              day(data.info.game_datetime);
+
+              $.map(participants, (player, i) => {
                 if (player.puuid == puu_id) {
+                  console.log(player)
                   // 게임 참가자 중 검색한 유저의 정보만 배열에 넣기
                   // history_user.push(player)
                   var placement = player.placement;
                   history_rank.push(placement);
-                  var background;
+
+                  var rank_background;
+                  var traits = player.traits;
+                  var units = player.units;
+
                   switch (placement) {
                     case 1:
-                      background = 'style="background:#1ca983"';
+                      rank_background = 'style="background:#1ca983"';
                       break;
                     case 2:
                     case 3:
                     case 4:
-                      background = 'style="background:#0f70b4"';
+                      rank_background = 'style="background:#0f70b4"';
                       break;
                     case 5:
                     case 6:
                     case 7:
                     case 8:
-                      background = 'style="background:#ccc"';
+                      rank_background = 'style="background:#ccc"';
                       break;
                   }
 
+                  // 특성 --------------------------------------------------
+                  var traits_list = [];
+                  var arr_traits = [];
+                  var obj_traits = {};
+                  var t_num;
+                  var t_hide;
+                  var hexagon;
+                  var t_icon;
+                  var t_src;
+                  var t_alt;
+                  var tr;
+
+
+                  $.map(traits, (trait, i) => {
+                    if (trait.name != 'Set8_Threat') {
+                      switch (trait.style) {
+                        case 0:
+                          hexagon = 'display: none';
+                          break;
+                        case 1:
+                          hexagon = 'background: url(../images/hexagon/bronze.svg) no-repeat';
+                          t_num = 4;
+                          break;
+                        case 2:
+                          hexagon = 'background: url(../images/hexagon/silver.svg) no-repeat';
+                          t_num = 3;
+                          break;
+                        case 3:
+                          hexagon = 'background: url(../images/hexagon/gold.svg) no-repeat';
+                          t_num = 2;
+                          break;
+                        case 4:
+                          hexagon = 'background: url(../images/hexagon/chromatic.svg) no-repeat';
+                          t_num = 1;
+                          break;
+                      };
+                    } else {
+                      hexagon = 'background: url(../images/hexagon/gold.svg) no-repeat';
+                      t_num = 2;
+                    }
+
+                    // 특성 switch
+                    switch (trait.name) {
+                      default:
+                        t_icon = 'display: none';
+                        t_alt = '';
+                        break;
+                      case 'Set8_Ace':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Ace.svg';
+                        t_alt = '에이스';
+                        break;
+                      case 'Set8_Admin':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/ADMIN.svg';
+                        t_alt = '자동방어체계';
+                        break;
+                      case 'Set8_Aegis':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Aegis.svg';
+                        t_alt = '방패대';
+                        break;
+                      case 'Set8_AnimaSquad':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/AnimaSquad.svg';
+                        t_alt = '동물특공대';
+                        break;
+                      case 'Set8_Arsenal':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Arsenal.svg';
+                        t_alt = '병기고';
+                        break;
+                      case 'Set8_Brawler':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Brawler.svg';
+                        t_alt = '싸움꾼';
+                        break;
+                      case 'Set8_Civilian':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Civilian.svg';
+                        t_alt = '민간인';
+                        break;
+                      case 'Set8_Corrupted':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Corrupted.svg';
+                        t_alt = '타락';
+                        break;
+                      case 'Set8_Defender':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Defender.svg';
+                        t_alt = '엄호대';
+                        break;
+                      case 'Set8_Duelist':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Duelist.svg';
+                        t_alt = '결투가';
+                        break;
+                      case 'Set8_Forecaster':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Forecaster.svg';
+                        t_alt = '기상캐스터';
+                        break;
+                      case 'Set8_GenAE':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Gadgeteen.svg';
+                        t_alt = '기계유망주';
+                        break;
+                      case 'Set8_Hacker':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Hacker.svg';
+                        t_alt = '해커';
+                        break;
+                      case 'Set8_Heart':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Heart.svg';
+                        t_alt = '선의';
+                        break;
+                      case 'Set8_SpaceCorps':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/LaserCorps.svg';
+                        t_alt = '레이저단';
+                        break;
+                      case 'Set8_Mascot':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Mascot.svg';
+                        t_alt = '마스코트';
+                        break;
+                      case 'Set8_ExoPrime':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/MechaPRIME.svg';
+                        t_alt = '메카: 프라임';
+                        break;
+                      case 'Set8_OxForce':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/OxForce.svg';
+                        t_alt = '황소부대';
+                        break;
+                      case 'Set8_Prankster':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Prankster.svg';
+                        t_alt = '익살꾼';
+                        break;
+                      case 'Set8_Recon':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Recon.svg';
+                        t_alt = '정찰단';
+                        break;
+                      case 'Set8_Renegade':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Renegade.svg';
+                        t_alt = '무법자';
+                        break;
+                      case 'Set8_Channeler':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Spellslinger.svg';
+                        t_alt = '주문투척자';
+                        break;
+                      case 'Set8_StarGuardian':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/StarGuardian.svg';
+                        t_alt = '별수호자';
+                        break;
+                      case 'Set8_Supers':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Supers.svg';
+                        t_alt = '우세';
+                        break;
+                      case 'Set8_Deadeye':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Sureshot.svg';
+                        t_alt = '특등사수';
+                        break;
+                      case 'Set8_Threat':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/Threat.svg';
+                        t_alt = '위협';
+                        break;
+                      case 'Set8_UndergroundThe':
+                        t_icon = 'display:block'
+                        t_src = '../images/synergies/UndergroundThe.svg';
+                        t_alt = '지하세계';
+                        break;
+                    };
+
+                    if (hexagon == 'display: none') {
+                      t_hide = 'display: none';
+                    } else t_hide = 'display:inline-block';
+
+                    tr = '<div class="traits" style="' + t_hide + '"><div class="hexagon" style="' + hexagon + '"><div class="trait" style="' + t_icon + '"><img src="' + t_src + '" alt="' + t_alt + '"></div></div></div>'
+                    obj_traits = {
+                      obj_num: t_num,
+                      obj_tr: tr
+                    }
+                    arr_traits.push(obj_traits);
+                  })
+
+                  arr_traits.sort(function (a, b) {
+                    return a.obj_num - b.obj_num
+                  })
+
+                  for (var i = 0; i < arr_traits.length; i++) {
+                    traits_list.push(arr_traits[i].obj_tr);
+                  }
+
+                  // 증강 --------------------------------------------------
+
+                  // 유닛 --------------------------------------------------
+                  var unit_list = [];
+                  var item_list = [];
+                  var c_src;
+                  var star;
+                  var cost;
+                  var u_color;
+                  var u_item;
+                  var ch;
+
+                  $.map(units, (unit, i) => {
+                    c_src = unit.character_id
+                    cost = unit.rarity;
+
+                    switch (unit.tier) {
+                      case 1:
+                        star = '★'
+                        break;
+                      case 2:
+                        star = '★★'
+                        break;
+                      case 3:
+                        star = '★★★'
+                        break;
+                    }
+
+                    switch (cost) {
+                      case 0:
+                        u_color = '#818181'
+                        break;
+                      case 1:
+                        u_color = '#18b48b'
+                        break;
+                      case 2:
+                        u_color = '#207ac7'
+                        break;
+                      case 3:
+                        u_color = '#c440da'
+                        break;
+                      case 4:
+                        u_color = '#ffb93b'
+                        break;
+                    }
+
+                    switch (unit.items.length) {
+                      default:
+                        u_item = '<div class="item_box"></div>'
+                        break;
+                      case 1:
+                        u_item = '<div class="item_box"><img class="item_img" src="../images/item/' + unit.items[0] + '.png"></div>'
+                        break;
+                      case 2:
+                        u_item = '<div class="item_box"><img class="item_img" src="../images/item/' + unit.items[0] + '.png"></div><div class="item_box"><img class="item_img" src="../images/item/' + unit.items[1] + '.png"></div>'
+                        break;
+                      case 3:
+                        u_item = '<div class="item_box"><img class="item_img" src="../images/item/' + unit.items[0] + '.png"></div><div class="item_box"><img class="item_img" src="../images/item/' + unit.items[1] + '.png"></div><div class="item_box"><img class="item_img" src="../images/item/' + unit.items[2] + '.png"></div>'
+                        break;
+                    }
+
+                    ch = '<div class="units_wrap"><div id="stars" class="stars" style="color:' + u_color + '">' + star + '</div><div class="unit_img_wrap" style="border: 3px solid ' + u_color + ';"><img class="unit_img" src="../images/unit/' + c_src + '.jpg" alt="' + c_src + '"></div><div class="item_wrap">' + u_item + '</div></div>';
+                    unit_list.push(ch)
+                  })
+
                   $(".chart_val").append(
                     '<div class="one_box"' +
-                      background +
-                      '><div class="one_txt">' +
-                      placement +
-                      "</div></div>"
+                    rank_background +
+                    '><div class="one_txt">' +
+                    placement +
+                    '</div></div>'
                   );
+
                   $("#history_each_wrap").append(
-                    '<div class="history_cont_wrap"><div class="history_rank" ' +
-                      background +
-                      '>#<span class="hst_rank">' +
-                      player.placement +
-                      '</span></div><div class="history_cont"><div class="summary"><span class="p_type">' +
-                      game_type +
-                      '</span> <span class="p_time">' +
-                      game_time +
-                      '</span> <span class="p_day">' +
-                      game_day +
-                      '</span></div><div class="history_flex_box"><div class="traits">특성</div><div class="augments">증강</div></div><div class="units">유닛</div></div></div>'
+                    '<div class="history_cont_wrap"><div class="history_rank"' +
+                    rank_background +
+                    '>#<span class="hst_rank">' +
+                    player.placement +
+                    '</span></div><div class="history_cont"><div class="summary"><span class="p_type">' +
+                    game_type +
+                    '</span> <span class="p_time">' +
+                    game_time +
+                    '</span> <span class="p_day">' +
+                    game_day +
+                    '</span></div><div class="history_flex_box"><div class="traits_wrap">' +
+                    traits_list.join('') +
+                    '</div><div class="augments">증강</div></div><div class="units_list_wrap">' +
+                    unit_list.join('') +
+                    '</div></div></div>'
                   );
-                }
+                };
               });
             });
           });
