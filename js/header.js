@@ -6,7 +6,7 @@ $(document).ready(function () {
       alert("소환사명을 입력해주세요");
     } else {
       localStorage.setItem("search_name", sch_txt);
-      location.href='profile.html';
+      location.href='http://localhost/KDT-2nd-project-TFT8.0/profile/profile.html';
     }
   });
 
