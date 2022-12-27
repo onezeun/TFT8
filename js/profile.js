@@ -421,7 +421,6 @@ $(document).ready(function () {
 
                   // 유닛 --------------------------------------------------
                   var unit_list = [];
-                  var item_list = [];
                   var c_src;
                   var star;
                   var cost;
