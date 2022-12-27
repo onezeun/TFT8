@@ -80,6 +80,10 @@ button {
   cursor: pointer;
 }
 
+input, div, ul, button {
+  font-size: 1rem;
+}
+
 div,
 header,
 ul,
