@@ -213,8 +213,9 @@ font-weight: bold;
 }
 
 .history_rank {
-  width: 10%;
-  background: #1ca983;
+  width: 5vw;
+  min-width: 30px;
+  max-width: 50px;
   color: white;
   font-weight: bold;
   display: flex;
@@ -231,6 +232,7 @@ font-weight: bold;
   width: 27px;
   height: 27px;
 }
+
 
 .hexagon {
   width: 100%;
@@ -253,25 +255,32 @@ font-weight: bold;
 }
 
 .units_list_wrap {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .units_wrap {
-  width: 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 5px;
+  margin: 0 2px;
   text-align: center;
 }
 
 .stars {
   font-family: 'GangwonEduPowerExtraBoldA';
+  font-size: 0.8rem;
+  margin: 5px auto 0;
 }
 
 .unit_img_wrap {
-  width: 45px;
-  height: 45px;
+  width: 10vh;
+  height: 10vh;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 45px;
+  max-width: 45px;
   border-radius: 3px;
   margin: -5px auto 0;
 }
@@ -290,11 +299,16 @@ font-weight: bold;
 .item_box {
   width: 13px;
   height: 13px;
+  margin-top: 3px;
+  font-size: 0;
+  line-height: 0;
 }
 
 .item_img {
   width: 100%;
   height: 100%;
+  font-size: 0;
+  line-height: 0;
 }
 
 .summary {
@@ -331,4 +345,16 @@ font-weight: bold;
     min-width: 450px;
     justify-content: space-between;
   }
+
+  .traits_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+    margin: 0 10px;
+  }
+
+  .units_list_wrap {
+    min-width: 500px;
+  }
+  
 }

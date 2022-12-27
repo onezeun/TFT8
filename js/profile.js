@@ -78,6 +78,7 @@ $(document).ready(function () {
         dataType: "json",
       })
         .done(function (data) {
+          var ranked_tft = data.find(e => e.queueType === 'RANKED_TFT')
           var rm = $("#ranked_emblems");
           var rc = $(".tier_wrap");
 
@@ -87,16 +88,15 @@ $(document).ready(function () {
             $("#rank").text("UNLANKED");
             $(".point_wrap").hide();
           } else {
-            console.log(data)
             // 유저 티어 정보
             $(".point_wrap").show();
-            $("#tier").text(data[0].tier);
-            $("#rank").text(data[0].rank);
-            $("#point").text(data[0].leaguePoints);
+            $("#tier").text(ranked_tft.tier);
+            $("#rank").text(ranked_tft.rank);
+            $("#point").text(ranked_tft.leaguePoints);
 
             var rank_src = "";
             var rank_color = "";
-            switch (data[0].tier) {
+            switch (ranked_tft.tier) {
               case "IRON":
                 rank_src = "../images/Emblem_Iron.png";
                 rank_color = "#40312e";
@@ -136,7 +136,6 @@ $(document).ready(function () {
             }
             rm.attr("src", rank_src);
             rc.css("color", rank_color);
-            console.log(rank_src)
           }
         })
         .then(() => {
@@ -183,23 +182,34 @@ $(document).ready(function () {
                   history_rank.push(placement);
 
                   var rank_background;
+                  var chart_bg;
+
                   var traits = player.traits;
                   var units = player.units;
 
                   switch (placement) {
                     case 1:
-                      rank_background = 'style="background:#1ca983"';
+                      chart_bg =  'style="background:#ffb93b"';
+                      rank_background = 'style="background:#ffb93b"';
                       break;
                     case 2:
+                      chart_bg =  'style="background:#a057bb"';
+                      rank_background = 'style="background:#a057bb"';
+                      break;
                     case 3:
+                      chart_bg =  'style="background:#207ac7"';
+                      rank_background = 'style="background:#207ac7"';
+                      break;
                     case 4:
-                      rank_background = 'style="background:#0f70b4"';
+                      chart_bg =  'style="background:#18b48b"';
+                      rank_background = 'style="background:#18b48b"';
                       break;
                     case 5:
                     case 6:
                     case 7:
                     case 8:
-                      rank_background = 'style="background:#ccc"';
+                      chart_bg =  'style="background:#dadada"';
+                      rank_background = 'style="background:#818181"';
                       break;
                   }
 
@@ -474,7 +484,7 @@ $(document).ready(function () {
 
                   $(".chart_val").append(
                     '<div class="one_box"' +
-                    rank_background +
+                    chart_bg +
                     '><div class="one_txt">' +
                     placement +
                     '</div></div>'
@@ -493,9 +503,9 @@ $(document).ready(function () {
                     game_day +
                     '</span></div><div class="history_flex_box"><div class="traits_wrap">' +
                     traits_list.join('') +
-                    '</div><div class="augments">증강</div></div><div class="units_list_wrap">' +
+                    '</div><div class="augments">증강</div><div class="units_list_wrap">' +
                     unit_list.join('') +
-                    '</div></div></div>'
+                    '</div></div></div></div>'
                   );
                 };
               });
