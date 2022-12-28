@@ -7,7 +7,7 @@
 
   animation-name: pathAnimation, backAnimation;
   animation-duration: 1.5s, 3s;
-  animation-delay: 0s, 2.2s;
+  animation-delay: 0s, 1.6s;
   animation-fill-mode: forwards;
   animation-timing-function: ease, ease-in;
 }
@@ -48,6 +48,6 @@
   }
 
   100% {
-    fill: #fff;
+    fill: #ffffff;
   }
 }

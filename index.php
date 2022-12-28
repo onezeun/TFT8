@@ -209,11 +209,10 @@ include 'inc/dbcon.php'; ?>
               </div>
             </div>
             <?php
-            $i++;
-            if (count($origin_syn_data) < $i) {
-                break;
-            };
-
+              $i++;
+              if (count($origin_syn_data) < $i) {
+                  break;
+              };
             };
             ?>
           </div>
