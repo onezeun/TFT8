@@ -84,7 +84,7 @@
 
 h2 {
   font-family: 'RixYeoljeongdo_Regular';
-  font-size: 2.2rem;
+  font-size: 200%;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -137,7 +137,7 @@ h2 {
 }
 
 .syn_cont {
-  margin: 150px auto;
+  margin: 150px auto 30%;
   position: relative;
 }
 
@@ -322,6 +322,7 @@ h2 {
   font-size: 1.8rem;
   width: 80%;
   height: 70px;
+  max-width: 400px;
   background-color: #7d6391;
   border: none;
   border-radius: 10px;
@@ -333,6 +334,7 @@ h2 {
   height: 100%;
   position: absolute;
   top:0;
+  overflow: hidden;
 }
 
 .bot_bg {

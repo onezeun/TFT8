@@ -14,12 +14,16 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
   <script type="text/javascript" src="js/includ.js"></script>
   <script type="text/javascript" src="js/slick.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+
 </head>
 
 <body>
@@ -68,8 +72,8 @@
 
       <div class="cont_wrap">
         <section class="new_cont">
-          <h2>새로운 게임플레이 요소!</h2>
-          <div class="mb-4 cst_card new_hero">
+          <h2 id="new_title">새로운 게임플레이 요소!</h2>
+          <div id="cst_card1" class="mb-4 cst_card new_hero">
             <img src="images/new01.jpg" alt="영웅증강소개" class="new_hero_img">
             <div class="cst_card_txt">
               <h3>영웅 증강</h3>
@@ -81,7 +85,7 @@
             </div>
           </div>
 
-          <div class="mb-4 cst_card new_threat">
+          <div id="cst_card2" class="mb-4 cst_card new_threat">
             <img src="images/new02.jpg" alt="위협소개">
             <div class="cst_card_txt">
               <h3>위협</h3>
@@ -95,7 +99,7 @@
             </div>
           </div>
 
-          <div class="cst_card new_anvil">
+          <div id="cst_card3" class="cst_card new_anvil">
             <img src="images/new03.jpg" alt="아이템 모루와 PvE 라운드소개">
             <div class="cst_card_txt">
               <h3>아이템 모루와 PvE 라운드</h3>
@@ -116,11 +120,11 @@
         </section>
 
         <section class="syn_cont">
-          <div class="syn_title_wrap">
+          <div id="syn_title" class="syn_title_wrap">
             <h2>시너지 소개</h2>
             <a href="#" class="all_view">전체보기</a>
           </div>
-          <div class="syn_slide">
+          <div id="syn_slide" class="syn_slide">
             <div class="syn_card_wrap">
               <div class="syn_card">
                 <div class="syn_symbol">
@@ -181,19 +185,19 @@
               </div>
             </div>
           </div>
-          <div class="slide_arrow">
+          <div id="syn_slide_arrow" class="slide_arrow">
             <a href="#" id="syn_prev" class="slide_prev"><</a>
             <a href="#" id="syn_next" class="slide_next">></a>
           </div>
         </section>
 
         <section class="agm_cont">
-          <div class="syn_title_wrap">
+          <div id="agm_title" class="syn_title_wrap">
             <h2>영웅증강</h2>
             <a href="#" class="all_view">전체보기</a>
           </div>
 
-          <div class="agm_slide">
+          <div id="agm_slide" class="agm_slide">
             <div class="agm_wrap">
               <div class="agm_hero_wrap">
                 <div class="agm_hero_left">
@@ -300,7 +304,7 @@
               </div>
             </div>
           </div>
-          <div class="slide_arrow">
+          <div id="agm_slide_arrow" class="slide_arrow">
             <a href="#" id:="agm_prev" class="slide_prev"><</a>
             <a href="#" id:="agm_next" class="slide_next">></a>
           </div>
