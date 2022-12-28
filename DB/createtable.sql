@@ -44,10 +44,10 @@ CREATE TABLE champion_class (
 );
 
 
--- 종류 영웅 1, 실버 2, 골드, 3, 프리즘 4
+-- class 영웅 1, 실버 2, 골드, 3, 프리즘 4
 CREATE TABLE augments (
   a_idx INT AUTO_INCREMENT PRIMARY KEY,
-  a_kind CHAR(1) NOT NULL,
+  a_class CHAR(1) NOT NULL,
   a_title VARCHAR(50) NOT NULL,
   a_content TEXT NOT NULL,
   a_icon VARCHAR(255) NOT NULL,
