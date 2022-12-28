@@ -1,3 +1,6 @@
+<?php
+// DB 연결
+include 'inc/dbcon.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TFT8.0 : 괴물습격</title>
+
   <link rel="shortcut icon" href="images/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/slick.css" />
@@ -14,15 +18,17 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/svg.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
   <script type="text/javascript" src="js/includ.js"></script>
   <script type="text/javascript" src="js/slick.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+
 
 </head>
 
@@ -125,65 +131,91 @@
             <a href="#" class="all_view">전체보기</a>
           </div>
           <div id="syn_slide" class="syn_slide">
-            <div class="syn_card_wrap">
-              <div class="syn_card">
-                <div class="syn_symbol">
-                  <div class="syn_icon"></div>
-                  <img src="images/ico_symbol.png" alt="">
-                </div>
-                <div class="syn_txt">
-                  <h3>별 수호자</h3>
-                  <p>모든 마나 획득량이 증가합니다</p>
-                  <pre>
-  (3) 마나 40%
-  (5) 마나 70%
-  (7) 마나 120%
-  (9) 마나 200%</pre>
-                </div>
-                <div class="syn_cham_list">
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                </div>
-                <div class="syn_cham_list">
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                </div>
-              </div>
-            </div>
+            <?php
+              $origin_syn_data = [
+                  'Gadgeteen',
+                  'AnimaSquad',
+                  'LaserCorps',
+                  'MechaPRIME',
+                  'Civilian',
+                  'StarGuardian',
+                  'Arsenal',
+                  'Supers',
+                  'Threat',
+                  'ADMIN',
+                  'UndergroundThe',
+                  'OxForce',
+              ];
+              $i = 0;
 
+              while ($i < count($origin_syn_data)) {
+              $sql = "SELECT * FROM origin_synergies WHERE o_icon = '$origin_syn_data[$i]';";
+              $result = mysqli_query($dbcon, $sql);
+              $array = mysqli_fetch_array($result);
+            ?>
             <div class="syn_card_wrap">
               <div class="syn_card">
                 <div class="syn_symbol">
-                  <div class="syn_icon"></div>
-                  <img src="images/ico_symbol.png" alt="">
+                  <div class="syn_icon">
+                    <object type="image/svg+xml" data="images/animationsvg/<?php echo $origin_syn_data[$i]; ?>.svg" class="syn_icon_img"></object>
+                  </div>
                 </div>
                 <div class="syn_txt">
-                  <h3>별 수호자</h3>
-                  <p>모든 마나 획득량이 증가합니다</p>
-                  <pre>
-  (3) 마나 40%
-  (5) 마나 70%
-  (7) 마나 120%
-  (9) 마나 200%</pre>
+                  <h3><?php echo $array['o_title']; ?></h3>
+                  <p><?php echo $array['o_content']; ?></p>
+                  <pre><?php echo $array['o_onskill']; ?></pre>
                 </div>
-                <div class="syn_cham_list">
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                </div>
-                <div class="syn_cham_list">
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
-                  <div class="syn_cham01"></div>
+                <?php
+                $cham_sql = "SELECT o.o_title, cham.c_idx, cham.c_name, cham.c_cost, cham.c_icon, cham.c_img FROM origin_synergies o JOIN champion_origin co ON o.o_idx = co.o_idx JOIN champions cham ON co.c_idx = cham.c_idx WHERE o.o_icon = '$origin_syn_data[$i]' ORDER BY cham.c_cost;";
+                $cham_result = mysqli_query($dbcon, $cham_sql);
+                $cham_i = 0;
+                ?>
+                <div class="syn_cham_list_wrap">
+                  <div class="syn_cham_list">
+                  <?php while ($cham_array = mysqli_fetch_array($cham_result)) { 
+                    $border_color = '';
+                    switch($cham_array['c_cost']) {
+                      case 1:
+                        $border_color = '#ccc';
+                        break;
+                      case 2:
+                        $border_color = '#18b48b';
+                        break;
+                      case 3:
+                        $border_color = '#207ac7';
+                        break;
+                      case 4:
+                        $border_color = '#c440da';
+                        break;
+                      case 5:
+                        $border_color = '#ffb93b';
+                        break;
+                    };
+                    ?>
+                    <div class="syn_cham01" style=" border: 3px solid <?php echo $border_color; ?>"><img src="images/champions/<?php echo $cham_array['c_icon'] ?>.jpg" alt="<?php echo $cham_array['c_name'] ?>" class="syn_cham_img"></div>
+                    <?php
+                      if ($cham_i == 3) {
+                          echo '</div>';
+                          echo '<div class="syn_cham_list">';
+                      };
+                      $cham_i++;
+
+                      if ($cham_i > 7) {
+                        break;
+                      };
+                    }; ?>
+                  </div>
                 </div>
               </div>
             </div>
+            <?php
+            $i++;
+            if (count($origin_syn_data) < $i) {
+                break;
+            };
+
+            };
+            ?>
           </div>
           <div id="syn_slide_arrow" class="slide_arrow">
             <a href="#" id="syn_prev" class="slide_prev"><</a>
@@ -305,8 +337,8 @@
             </div>
           </div>
           <div id="agm_slide_arrow" class="slide_arrow">
-            <a href="#" id:="agm_prev" class="slide_prev"><</a>
-            <a href="#" id:="agm_next" class="slide_next">></a>
+            <a href="#" id="agm_prev" class="slide_prev"><</a>
+            <a href="#" id="agm_next" class="slide_next">></a>
           </div>
         </section>
       </div>
@@ -332,6 +364,8 @@
       <div id="footer-include"></div>
     </footer>
   </div>
+  <?php // DB 접속 종료
+  mysqli_close($dbcon); ?>
 </body>
 
 </html>
