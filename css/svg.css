@@ -1,0 +1,53 @@
+.synergie_logo {
+
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-dasharray: 640px;
+  stroke-dashoffset: 0px;
+
+  animation-name: pathAnimation, backAnimation;
+  animation-duration: 1.5s, 3s;
+  animation-delay: 0s, 2.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease, ease-in;
+}
+
+.syn_icon_img {
+  margin-top: 26.5%;
+  transform: scale(1.5);
+}
+
+@media screen and (min-width: 1000px) {
+  .syn_icon_img {
+    margin-top: 33%;
+    transform: scale(2);
+  }
+}
+
+@keyframes pathAnimation {
+  from {
+    stroke-dashoffset: -620px;
+  }
+
+  to {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes backAnimation {
+  0% {
+    fill: transparent;
+  }
+
+  10% {
+    fill: #ffffff;
+  }
+
+  17% {
+    fill: #ffffff;
+  }
+
+  100% {
+    fill: #fff;
+  }
+}
