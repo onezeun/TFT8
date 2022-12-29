@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var search_name = localStorage.getItem("search_name");
-  var api_key = "RGAPI-b00d4381-1d39-4488-9be3-a46abd4f49ba";
+  var api_key = "RGAPI-39c2d4e1-e8c3-4f02-8b92-cade324b18e3";
 
   // 전역 변수 설정
   var user_id;
