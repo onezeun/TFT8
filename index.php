@@ -132,32 +132,35 @@ include 'inc/dbcon.php'; ?>
           </div>
           <div id="syn_slide" class="syn_slide">
             <?php
-              $origin_syn_data = [
-                  'Gadgeteen',
-                  'AnimaSquad',
-                  'LaserCorps',
-                  'MechaPRIME',
-                  'Civilian',
-                  'StarGuardian',
-                  'Arsenal',
-                  'Supers',
-                  'Threat',
-                  'ADMIN',
-                  'UndergroundThe',
-                  'OxForce',
-              ];
-              $i = 0;
+            $origin_syn_data = [
+                'Gadgeteen',
+                'AnimaSquad',
+                'LaserCorps',
+                'MechaPRIME',
+                'Civilian',
+                'StarGuardian',
+                'Arsenal',
+                'Supers',
+                'Threat',
+                'ADMIN',
+                'UndergroundThe',
+                'OxForce',
+            ];
+            $i = 0;
 
-              while ($i < count($origin_syn_data)) {
-              $sql = "SELECT * FROM origin_synergies WHERE o_icon = '$origin_syn_data[$i]';";
-              $result = mysqli_query($dbcon, $sql);
-              $array = mysqli_fetch_array($result);
-            ?>
+            while ($i < count($origin_syn_data)) {
+
+                $sql = "SELECT * FROM origin_synergies WHERE o_icon = '$origin_syn_data[$i]';";
+                $result = mysqli_query($dbcon, $sql);
+                $array = mysqli_fetch_array($result);
+                ?>
             <div class="syn_card_wrap">
               <div class="syn_card">
                 <div class="syn_symbol">
                   <div class="syn_icon">
-                    <object type="image/svg+xml" data="images/animationsvg/<?php echo $origin_syn_data[$i]; ?>.svg" class="syn_icon_img"></object>
+                    <object type="image/svg+xml" data="images/animationsvg/<?php echo $origin_syn_data[
+                        $i
+                    ]; ?>.svg" class="syn_icon_img"></object>
                   </div>
                 </div>
                 <div class="syn_txt">
@@ -172,48 +175,55 @@ include 'inc/dbcon.php'; ?>
                 ?>
                 <div class="syn_cham_list_wrap">
                   <div class="syn_cham_list">
-                  <?php while ($cham_array = mysqli_fetch_array($cham_result)) { 
-                    $border_color = '';
-                    switch($cham_array['c_cost']) {
-                      case 1:
-                        $border_color = '#ccc';
-                        break;
-                      case 2:
-                        $border_color = '#18b48b';
-                        break;
-                      case 3:
-                        $border_color = '#207ac7';
-                        break;
-                      case 4:
-                        $border_color = '#c440da';
-                        break;
-                      case 5:
-                        $border_color = '#ffb93b';
-                        break;
-                    };
-                    ?>
-                    <div class="syn_cham01" style=" border: 3px solid <?php echo $border_color; ?>"><img src="images/champions/<?php echo $cham_array['c_icon'] ?>.jpg" alt="<?php echo $cham_array['c_name'] ?>" class="syn_cham_img"></div>
-                    <?php
-                      if ($cham_i == 3) {
-                          echo '</div>';
-                          echo '<div class="syn_cham_list">';
-                      };
-                      $cham_i++;
+                  <?php while ($cham_array = mysqli_fetch_array($cham_result)) {
 
-                      if ($cham_i > 7) {
+                      $border_color = '';
+                      switch ($cham_array['c_cost']) {
+                          case 1:
+                              $border_color = '#ccc';
+                              break;
+                          case 2:
+                              $border_color = '#18b48b';
+                              break;
+                          case 3:
+                              $border_color = '#207ac7';
+                              break;
+                          case 4:
+                              $border_color = '#c440da';
+                              break;
+                          case 5:
+                              $border_color = '#ffb93b';
+                              break;
+                      }
+                      ?>
+                    <div class="syn_cham01" style=" border: 3px solid <?php echo $border_color; ?>"><img src="images/champions/<?php echo $cham_array[
+    'c_icon'
+]; ?>.jpg" alt="<?php echo $cham_array[
+    'c_name'
+]; ?>" class="syn_cham_img"></div>
+                    <?php
+                    if ($cham_i == 3) {
+                        echo '</div>';
+                        echo '<div class="syn_cham_list">';
+                    }
+                    $cham_i++;
+
+                    if ($cham_i > 7) {
                         break;
-                      };
-                    }; ?>
+                    }
+
+                  } ?>
                   </div>
                 </div>
               </div>
             </div>
             <?php
-              $i++;
-              if (count($origin_syn_data) < $i) {
-                  break;
-              };
-            };
+            $i++;
+            if (count($origin_syn_data) < $i) {
+                break;
+            }
+
+            }
             ?>
           </div>
           <div id="syn_slide_arrow" class="slide_arrow">
@@ -229,111 +239,100 @@ include 'inc/dbcon.php'; ?>
           </div>
 
           <div id="agm_slide" class="agm_slide">
+            <?php
+            $left_cham_sql =
+                'SELECT c_idx FROM champions ORDER BY rand() LIMIT 5;';
+            $left_cham_result = mysqli_query($dbcon, $left_cham_sql);
+
+            while ($left_cham_array = mysqli_fetch_array($left_cham_result)) {
+
+                $lc_idx = $left_cham_array['c_idx'];
+                $rc_idx = $lc_idx == 59 ? $lc_idx - 1 : $lc_idx + 1;
+
+                $lo_sql = "SELECT cham.c_name, cham.c_img, o.o_title FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $lc_idx;";
+                $lo_result = mysqli_query($dbcon, $lo_sql);
+                $lo_array = mysqli_fetch_array($lo_result);
+
+                $lcl_sql = "SELECT  cl.class_title FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $lc_idx;";
+                $lcl_result = mysqli_query($dbcon, $lcl_sql);
+                $lcl_array = mysqli_fetch_array($lcl_result);
+
+                $lagm_sql = "SELECT agm.a_title, agm.a_content, agm.a_icon FROM augments agm JOIN champions cham ON agm.c_idx = cham.c_idx WHERE cham.c_idx = $lc_idx;";
+                $lagm_result = mysqli_query($dbcon, $lagm_sql);
+
+                // 오른쪽
+                $ro_sql = "SELECT cham.c_name, cham.c_img, o.o_title FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $rc_idx;";
+                $ro_result = mysqli_query($dbcon, $ro_sql);
+                $ro_array = mysqli_fetch_array($ro_result);
+
+                $rcl_sql = "SELECT  cl.class_title FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $rc_idx;";
+                $rcl_result = mysqli_query($dbcon, $rcl_sql);
+                $rcl_array = mysqli_fetch_array($rcl_result);
+
+                $ragm_sql = "SELECT agm.a_title, agm.a_content, agm.a_icon FROM augments agm JOIN champions cham ON agm.c_idx = cham.c_idx WHERE cham.c_idx = $rc_idx;";
+                $ragm_result = mysqli_query($dbcon, $ragm_sql);
+
+                ?>
             <div class="agm_wrap">
               <div class="agm_hero_wrap">
                 <div class="agm_hero_left">
                   <div class="agm_txt">
-                    <h3>갱플랭크</h3>
+                    <h3><?php echo $lo_array['c_name']; ?></h3>
                     <p>
-                      <span>우세</span>
-                      <span>결투가</span>
+                      <span><?php echo $lo_array['o_title']; ?></span>
+                      <span><?php 
+                      $lclass_title = $lcl_array == null ? '' : $lcl_array['class_title'];
+                      echo $lclass_title;
+                      ?></span>
                     </p>
                     <div class="ahl_skill">
+                    <?php while (
+                        $lagm_array = mysqli_fetch_array($lagm_result)
+                    ) { ?>
                       <p>
-                        <span class="skill_title">불타는 도탄</span>
-                        갱플랭크를 획득합니다.
-                        갱플랭크의 스킬이 다른 대상에게
-                        튀며 60%의 피해를 입힙니다.
+                        <span class="skill_title"><?php echo $lagm_array[
+                            'a_title'
+                        ]; ?></span>
+                        <?php echo $lagm_array['a_content']; ?>
                       </p>
-                      <p>
-                        <span class="skill_title">수금</span>
-                        갱플랭크를 획득합니다.
-                        갱플랭크를 전장에 배치하면, 아군이
-                        적을 처치 시 33%의 확률로 1골드를
-                        획득합니다.
-                      </p>
+                    <?php } ?>
                     </div>
                   </div>
+                  <img src="./images/champions/<?php echo $lo_array['c_img']; ?>.jpg" class="agm_left_img">
+                  <div class="agm_left_bg"></div>
                 </div>
 
                 <div class="agm_hero_right">
                   <div class="agm_txt">
-                    <h3>징크스</h3>
-                    <p>동물특공대 익살꾼</p>
-                    <div class="ahr_skill">
-                      <p>
-                        <span class="skill_title">신난다!</span>
-                        징크스를 획득합니다.
-                        징크스가 처치에 관여하면 5초 동안
-                        공격 속도와 이동 속도가 110%
-                        증가합니다.
-                      </p>
-                      <p>
-                        <span class="skill_title">전부 터져라!</span>
-                        징크스를 획득합니다.
-                        징크스가 전장을 배치하면 모든
-                        아군의 공격 속도가 9% 증가합니다.
-                        각 전투에서 적을 처음 처치하면
-                        이 효과가 세 배가 됩니다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="agm_wrap">
-              <div class="agm_hero_wrap">
-                <div class="agm_hero_left">
-                  <div class="agm_txt">
-                    <h3>갱플랭크</h3>
+                    <h3><?php echo $ro_array['c_name']; ?></h3>
                     <p>
-                      <span>우세</span>
-                      <span>결투가</span>
+                      <span><?php echo $ro_array['o_title']; ?></span>
+                      <span><?php 
+                      $rclass_title = $rcl_array == null ? '' : $rcl_array['class_title'];
+                      echo $rclass_title;
+                      ?></span>
                     </p>
                     <div class="ahl_skill">
+                    <?php while (
+                        $ragm_array = mysqli_fetch_array($ragm_result)
+                    ) { ?>
                       <p>
-                        <span class="skill_title">불타는 도탄</span>
-                        갱플랭크를 획득합니다.
-                        갱플랭크의 스킬이 다른 대상에게
-                        튀며 60%의 피해를 입힙니다.
+                        <span class="skill_title"><?php echo $ragm_array[
+                            'a_title'
+                        ]; ?></span>
+                        <?php echo $ragm_array['a_content']; ?>
                       </p>
-                      <p>
-                        <span class="skill_title">수금</span>
-                        갱플랭크를 획득합니다.
-                        갱플랭크를 전장에 배치하면, 아군이
-                        적을 처치 시 33%의 확률로 1골드를
-                        획득합니다.
-                      </p>
+                    <?php } ?>
                     </div>
                   </div>
-                </div>
-
-                <div class="agm_hero_right">
-                  <div class="agm_txt">
-                    <h3>징크스</h3>
-                    <p>동물특공대 익살꾼</p>
-                    <div class="ahr_skill">
-                      <p>
-                        <span class="skill_title">신난다!</span>
-                        징크스를 획득합니다.
-                        징크스가 처치에 관여하면 5초 동안
-                        공격 속도와 이동 속도가 110%
-                        증가합니다.
-                      </p>
-                      <p>
-                        <span class="skill_title">전부 터져라!</span>
-                        징크스를 획득합니다.
-                        징크스가 전장을 배치하면 모든
-                        아군의 공격 속도가 9% 증가합니다.
-                        각 전투에서 적을 처음 처치하면
-                        이 효과가 세 배가 됩니다.
-                      </p>
-                    </div>
-                  </div>
+                  <img src="./images/champions/<?php echo $ro_array['c_img']; ?>.jpg" class="agm_right_img">
+                  <div class="agm_left_bg"></div>
                 </div>
               </div>
             </div>
+            <?php
+            }
+            ?>
           </div>
           <div id="agm_slide_arrow" class="slide_arrow">
             <a href="#" id="agm_prev" class="slide_prev"><</a>
@@ -364,7 +363,8 @@ include 'inc/dbcon.php'; ?>
     </footer>
   </div>
   <?php // DB 접속 종료
-  mysqli_close($dbcon); ?>
+
+mysqli_close($dbcon); ?>
 </body>
 
 </html>

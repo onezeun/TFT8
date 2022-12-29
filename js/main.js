@@ -111,21 +111,18 @@ $(document).ready(function () {
   });
 
   // 증강 슬라이더
-  $('.agm_slide')
-    .not('.slick-initialized')
-    .slick({
-      infinite: true,
-      prevArrow: $('#agm_prev'),
-      nextArrow: $('#agm_next'),
-    });
-
+  $('.agm_slide').not('.slick-initialized').slick({infinite: true,prevArrow: $('#agm_prev'), nextArrow: $('#agm_next')});
     $('.agm_slide').on('beforeChange',function (event, slick, currentSlide, nextSlide) {
-      $('.slick-active').find('.agm_hero_left').fadeOut(1000).removeClass('animate__animated animate__fadeInDown');
-      $('.slick-active').find('.agm_hero_right').fadeOut(1000).removeClass('animate__animated animate__fadeInUp');
+      $('.slick-active').find('.agm_hero_left').removeClass('animate__animated animate__fadeInDown');
+      $('.slick-active').find('.agm_hero_right').removeClass('animate__animated animate__fadeInUp');
+      $('.agm_hero_left').css({"opacity" :"0"});
+      $('.agm_hero_right').css({"opacity" :"0"});
     });
   
     $('.agm_slide').on('afterChange', function (event, slick, currentSlide) {
-      $('.slick-active').find('.agm_hero_left').fadeIn(200).addClass('animate__animated animate__fadeInDown');
-      $('.slick-active').find('.agm_hero_right').fadeIn(200).addClass('animate__animated animate__fadeInUp');
+      $('.slick-active').find('.agm_hero_left').addClass('animate__animated animate__fadeInDown');
+      $('.slick-active').find('.agm_hero_right').addClass('animate__animated animate__fadeInUp');
+      $('.agm_hero_left').css({"opacity" :"0"});
+      $('.agm_hero_right').css({"opacity" :"0"});
     });
 });

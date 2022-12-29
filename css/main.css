@@ -141,7 +141,7 @@ h2 {
 }
 
 .syn_title_wrap {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -246,6 +246,7 @@ h2 {
 }
 
 .agm_txt {
+  margin-top: 200px;
   padding: 15px;
 }
 
@@ -253,42 +254,58 @@ h2 {
 .agm_hero_left {
   width: 48%;
   height: 100%;
-  background: linear-gradient(
-    rgba(0,0,0,0) 25%,
-    rgba(0,0,0,0.2) 30%,
-    rgba(0,0,0,0.6) 35%,
-    rgba(0,0,0,1) 40%,
-    rgba(0,0,0,1) 100%
-    ), url(../images/champions/Gangplank.jpg) no-repeat;
-    background-size: 110%, 250%;
-    background-position: 80% top;
   margin-right: 1%;
   box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
   max-width: 270px;
+  overflow: hidden;
+  position: relative;
+  min-height: 650px;
 }
 
-.agm_txt {
-  margin-top: 20em;
+.agm_left_bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: inherit;
+  background: linear-gradient(
+    rgba(0,0,0,0) 10%,
+    rgba(0,0,0,0.2) 20%,
+    rgba(0,0,0,0.6) 25%,
+    rgba(0,0,0,1) 40%,
+    rgba(0,0,0,1) 100%
+  );
+  z-index: -1;
+}
+
+.agm_left_img {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  transform: scale(1.5);
+  z-index: -2;
 }
 
 .agm_hero_right {
   margin-top: 100px;
   width: 48%;
   height: 100%;
-  background: linear-gradient(
-    rgba(0,0,0,0) 10%,
-    rgba(0,0,0,0.2) 25%,
-    rgba(0,0,0,0.8) 40%,
-    rgba(0,0,0,1) 50%,
-    rgba(0,0,0,1) 75%,
-    rgba(0,0,0,1) 100%
-    ), url(../images/champions/Jinx.jpg) no-repeat;
-    background-size: 110%, 250%;
-    background-position: 80% top;
   margin-left: 2%;
   box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
   max-width: 270px;
+  overflow: hidden;
+  position: relative;
+  min-height: 650px;
 }
+
+.agm_right_img {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  transform: scale(1.5);
+  z-index: -2;
+} 
 
 .skill_title{
   display: block;
@@ -524,12 +541,12 @@ display: none ;
   }
 
   .syn_cont {
-    margin-top: 600px;
+    margin: 600px auto 15%;
   }
 
-  /* .syn_title_wrap {
+  .syn_title_wrap {
     margin-bottom: 50px;
-  } */
+  }
 
   .syn_card_wrap {
     padding: 55px 2% 0;
