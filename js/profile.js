@@ -140,7 +140,8 @@ $(document).ready(function () {
         })
         .then(() => {
           $.ajax({
-            url: "https://asia.api.riotgames.com/tft/match/v1/matches/by-puuid/" + puu_id + "/ids?start=0&count=20&api_key=" + api_key,
+            url: 
+            "https://asia.api.riotgames.com/tft/match/v1/matches/by-puuid/" + puu_id + "/ids?start=0&count=20&api_key=" + api_key,
             type: "GET",
             async: false,
             dataType: "json",
@@ -185,6 +186,7 @@ $(document).ready(function () {
                   var chart_bg;
 
                   var traits = player.traits;
+                  var augments = player.augments;
                   var units = player.units;
 
                   switch (placement) {
@@ -418,6 +420,28 @@ $(document).ready(function () {
                   }
 
                   // 증강 --------------------------------------------------
+                  var augment;
+                  var augment_list = [];
+                  var champions_list = ['Galio', 'Gangplank', 'Nasus', 'Nunu', 'Nilah', 'Draven', 'Rammus', 'Lux', 'Renekton', 'Leona', 'Rell', 'Lulu', 'Leblanc', 'LeeSin', 'Riven', 'Malphite', 'Mordekaiser', 'MissFortune', 'Vi', 'Vayne', 'Belveth', 'Velkoz', 'Blitzcrank', 'Viego', 'Poppy', 'Samira', 'Sylas', 'Senna', 'Sejuani', 'Sett', 'Sona', 'Soraka', 'Sivir', 'Syndra', 'AurelionSol', 'Aphelios', 'Alistar', 'Annie', 'Ashe', 'Yasuo', 'Ekko', 'MonkeyKing', 'Urgot', 'Yuumi', 'Ezreal', 'Zac', 'Janna', 'Jax', 'Zed', 'Zoe', 'Jinx', 'Chogath', 'Camille', 'Kaisa', 'Kayle', 'Talon', 'Taliyah', 'Fiddlesticks', 'Fiora'];
+                  $.map(augments, (val, i) => {
+                    var hero;
+                    var hero_ck = 0;
+
+                    $.map(champions_list, (cham, i) => {
+                      if(val.includes(cham) == true) {
+                        hero = cham;
+                        hero_ck = 1;
+                      }
+                    });
+
+                    if(hero_ck == 0) {
+                      augment = '<div class="augment"><img src="../images/augments/' + val + '.png" alt="'+val+'"></div>';
+                      augment_list.push(augment);
+                    } else {
+                      augment = '<div class="augment"><img src="../images/augments/i_' + hero + '.jpg" alt="'+hero+'"></div>';
+                      augment_list.push(augment);
+                    };
+                  });
 
                   // 유닛 --------------------------------------------------
                   var unit_list = [];
@@ -502,7 +526,9 @@ $(document).ready(function () {
                     game_day +
                     '</span></div><div class="history_flex_box"><div class="traits_wrap">' +
                     traits_list.join('') +
-                    '</div><div class="augments">증강</div><div class="units_list_wrap">' +
+                    '</div><div class="augments_wrap">' +
+                    augment_list.join('') +
+                    '</div><div class="units_list_wrap">' +
                     unit_list.join('') +
                     '</div></div></div></div>'
                   );

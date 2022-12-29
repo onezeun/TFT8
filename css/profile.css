@@ -233,7 +233,6 @@ font-weight: bold;
   height: 27px;
 }
 
-
 .hexagon {
   width: 100%;
   height: 100%;
@@ -252,6 +251,31 @@ font-weight: bold;
   width: 100%;
   height: 100%;
   filter: brightness(0%);
+}
+
+.augments_wrap {
+  display: flex;
+}
+
+.augment {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background: #282828;
+  border: 2px solid #5f5f5f;
+  border-radius: 50%;
+  outline: 1px solid #757575;
+  margin: 0 2px;
+  overflow: hidden;
+}
+
+.augment img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
 }
 
 .units_list_wrap {
@@ -349,8 +373,12 @@ font-weight: bold;
   .traits_wrap{
     display: flex;
     flex-wrap: wrap;
-    width: 25%;
+    width: 250px;
     margin: 0 10px;
+  }
+
+  .augments_wrap {
+    width: 200px;
   }
 
   .units_list_wrap {
