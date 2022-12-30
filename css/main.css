@@ -587,4 +587,12 @@ display: none ;
     top: 30px;
     right: 30%;
   }
+
+  .link_wrap {
+    height: 90vh;
+    margin-top: 20%;
+    text-align: center;
+    position: relative;
+  }
+  
 }
