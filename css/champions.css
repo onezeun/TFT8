@@ -1,0 +1,226 @@
+/* content */
+.content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 1.6em;
+  padding: 100px 2% 0;
+}
+
+.title_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.title_line {
+  display: none;
+}
+
+.title_wrap h2 {
+  font-size: 45px;
+  margin: 0 20px;
+}
+
+.menu {
+  margin: 30px 0;
+}
+
+.menu_list {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+.menu_list li {
+  padding: 10px;
+  width: 25%;
+  height: 50px;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.menu1 {
+  background: #7f6492;
+}
+
+.menu2,
+.menu3 {
+  background: #414141;
+  border-right: 1px solid white;
+}
+
+.menu4 {
+  background: #414141;
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #756280;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.filter_toggle {
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+  background: url(../images/toggle_btn.png) no-repeat;
+  background-size: cover;
+}
+
+.filter_list {
+  background: white;
+  border-radius: 5px;
+  color: black;
+  padding: 15px;
+}
+
+.filter_cost input[type="checkbox"]+label {
+  padding-left: 30px;
+}
+
+.filter_list img {
+  position: absolute;
+  top: 3px;
+  left: 28px;
+  width: 25px;
+  height: 25px;
+  filter: brightness(50%);
+}
+
+.filter_list h4 {
+  color: #361c4a;
+  font-size: 18px;
+}
+
+.filter_origin {
+  margin: 15px 0;
+}
+
+.champions_list {
+  margin-bottom: 100px;
+}
+
+.champions_list h3 {
+  font-size: 26px;
+}
+
+.cham_card {
+  width: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 5px 10px rgb(0, 0, 0, 0.3);
+  margin: 0 auto 20px;
+}
+
+
+.card_img_wrap {
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
+}
+
+.card_img {
+  width: 100%;
+  height: auto;
+}
+
+.card_content {
+  padding: 5px 20px 20px;
+}
+
+.cham_info {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.cham_info p {
+  display: flex;
+  align-items: center;
+}
+
+.cham_info img {
+  width: 25px;
+  height: 25px;
+  margin:0 5px 0 10px;
+}
+
+.cham_info .origin_ico {
+  margin:0 5px 0 0;
+}
+
+.cham_info .cost_ico {
+  width: 20px;
+  height: 20px;
+}
+
+.cham_skill_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cham_skill_title {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+@media screen and (min-width:740px) {
+  .cham_card {
+    width: 48%;
+    margin: 1%;
+  }
+
+  .champions_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+}
+
+@media screen and (min-width:1150px) {
+  .content {
+    padding-top: 0;
+  }
+
+  .title_line {
+    display: block;
+    height: 2px;
+    width: 30%;
+    background: white;
+  }
+
+  .menu_list li {
+    font-size: 28px;
+  }
+
+  .filter_title,
+  .filter_list {
+    padding: 15px 30px;
+  }
+
+  .champions_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  .cham_card {
+    width: 31.2%;
+    margin: 1%;
+  }
+
+  .card_img {
+    width: 100%;
+  }
+}
