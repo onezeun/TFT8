@@ -196,11 +196,7 @@ include 'inc/dbcon.php'; ?>
                               break;
                       }
                       ?>
-                    <div class="syn_cham01" style=" border: 3px solid <?php echo $border_color; ?>"><img src="images/champions/<?php echo $cham_array[
-    'c_icon'
-]; ?>.jpg" alt="<?php echo $cham_array[
-    'c_name'
-]; ?>" class="syn_cham_img"></div>
+                    <div class="syn_cham01" style=" border: 3px solid <?php echo $border_color; ?>"><img src="images/champions/<?php echo $cham_array['c_icon']; ?>.jpg" alt="<?php echo $cham_array['c_name']; ?>" class="syn_cham_img"></div>
                     <?php
                     if ($cham_i == 3) {
                         echo '</div>';
