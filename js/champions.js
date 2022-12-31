@@ -1,10 +1,5 @@
 $(document).ready(function () {
   var card_value = $('.card_value').val().split(',');
-
-  var cost_list = [];
-  var origin_list = [];
-  var class_list = [];
-
   $('.filter_toggle').on('click', function () {
     $('.filter_list').slideToggle();
   });
@@ -15,8 +10,10 @@ $(document).ready(function () {
     if ($(this).prop('checked') == true) {
       ck_list.push($(this).val());
     } else {
-      ck_list.splice($.inArray($(this).val(), cost_list), 1);
+      ck_list.splice($.inArray($(this).val(), ck_list), 1);
     }
+
+    console.log(ck_list)
     
     $('.card_check').val(ck_list.every(item => card_value.includes(item)));
 
