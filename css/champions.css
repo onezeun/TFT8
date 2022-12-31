@@ -191,6 +191,7 @@
 }
 
 .cham_info p {
+  margin-right: 10px;
   display: flex;
   align-items: center;
 }
@@ -198,7 +199,7 @@
 .cham_info img {
   width: 25px;
   height: 25px;
-  margin:0 5px 0 10px;
+  margin-right: 5px;
 }
 
 .cham_info .origin_ico {
