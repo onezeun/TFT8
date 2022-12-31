@@ -455,7 +455,7 @@ $(document).ready(function () {
                   $.map(units, (unit, i) => {
                     c_src = unit.character_id
                     cost = unit.rarity;
-
+                    
                     switch (unit.tier) {
                       case 1:
                         star = '★'
@@ -478,10 +478,10 @@ $(document).ready(function () {
                       case 2:
                         u_color = '#207ac7'
                         break;
-                      case 3:
+                      case 4:
                         u_color = '#c440da'
                         break;
-                      case 4:
+                      case 6:
                         u_color = '#ffb93b'
                         break;
                     }
