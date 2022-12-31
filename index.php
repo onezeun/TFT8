@@ -1,6 +1,7 @@
 <?php
-// DB 연결
-include 'inc/dbcon.php'; ?>
+  // DB 연결
+  include 'inc/dbcon.php'; 
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
