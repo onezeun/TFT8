@@ -101,8 +101,10 @@
       <?php 
         $sql = "SELECT * FROM champions ORDER BY c_cost;";
         $result = mysqli_query($dbcon, $sql);
+        $card_value = array();
 
         while($array = mysqli_fetch_array($result)) {
+          array_push($card_value, $array['c_cost']);
       ?>
       <div class="cham_card">
         <div class="card_img_wrap">
@@ -124,34 +126,40 @@
 
               if($o_num > 1) {
                 while($o_array = mysqli_fetch_array($o_result)) {
+                  array_push($card_value, $o_array['o_icon']);
               ?>
-              <p><img src="../images/synergies/<?php echo $o_array['o_icon']?>.svg" alt="<?php echo $o_array['o_title']?>" class="origin_ico"><span class="origin hide"><?php echo $o_array['o_icon']?></span><span><?php echo $o_array['o_title']?></span></p>
+              <p><img src="../images/synergies/<?php echo $o_array['o_icon']?>.svg" alt="<?php echo $o_array['o_title']?>" class="origin_ico"><span><?php echo $o_array['o_title']?></span></p>
             <?php
                 };
               } else {
                 $o_array = mysqli_fetch_array($o_result);
+                array_push($card_value, $o_array['o_icon']);
             ?>
-              <p><img src="../images/synergies/<?php echo $o_array['o_icon']?>.svg" alt="<?php echo $o_array['o_title']?>" class="origin_ico"><span class="origin hide"><?php echo $o_array['o_icon']?></span><span><?php echo $o_array['o_title']?></span></p>
+              <p><img src="../images/synergies/<?php echo $o_array['o_icon']?>.svg" alt="<?php echo $o_array['o_title']?>" class="origin_ico"><span><?php echo $o_array['o_title']?></span></p>
             <?php
               };
               if($c_num == 0) {
                 echo '';
               } else if($c_num > 1) {
                 while($c_array = mysqli_fetch_array($c_result)) {
+                  array_push($card_value, $c_array['class_icon']);
             ?>
-              <p><img src="../images/synergies/<?php echo $c_array['class_icon']?>.svg" alt="<?php echo $c_array['class_title']?>"><span class="class hide"><?php echo $c_array['class_icon']?></span><span><?php echo $c_array['class_title']?></span></p>
+              <p><img src="../images/synergies/<?php echo $c_array['class_icon']?>.svg" alt="<?php echo $c_array['class_title']?>"><span><?php echo $c_array['class_title']?></span></p>
             <?php
                 };
               } else {
                 $c_array = mysqli_fetch_array($c_result);
+                array_push($card_value, $c_array['class_icon']);
             ?>
-              <p><img src="../images/synergies/<?php echo $c_array['class_icon']?>.svg" alt="<?php echo $c_array['class_title']?>"><span class="class hide"><?php echo $c_array['class_icon']?></span><span><?php echo $c_array['class_title']?></span></p>
+              <p><img src="../images/synergies/<?php echo $c_array['class_icon']?>.svg" alt="<?php echo $c_array['class_title']?>"><span><?php echo $c_array['class_title']?></span></p>
             <?php
               };
             ?>
 
-            <p><img src="../images/ico_cost.png" alt="코스트아이콘" class="cost_ico"><span class="cost"><?php echo $array['c_cost'];?></span></p>
+            <p><img src="../images/ico_cost.png" alt="코스트아이콘" class="cost_ico"><?php echo $array['c_cost'];?></p>
           </div>
+          <input type="hidden" value='<?php echo implode(',', $card_value);?>' class="card_value">
+          <input type="hidden" class="card_check">
           <div class="cham_skill_top">
             <img src="../images/champions/s_<?php echo $array['c_img'];?>.png" alt="스킬이미지">
             <div class="cham_skill_info">
@@ -164,6 +172,7 @@
         </div>
       </div>
       <?php 
+        $card_value = array();
           };
       ?>
     </div>
