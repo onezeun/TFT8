@@ -48,7 +48,7 @@
         </div>
         <!-- 모바일, 태블릿 메인 비디오 -->
         <div class="m_bg">
-          <video class="video-container" autoplay muted loop>
+          <video class="video-container" autoplay muted loop playsinline>
             <source src="images/tft8.0.mp4" type="video/mp4">
           </video>
           <img src="images/m_bg01.png" alt="모바일배경" class="m_sub_bg">
