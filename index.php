@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <a href="" class="y_link">전략적 팀 전투 유튜브 바로가기</a>
+          <a href="https://www.youtube.com/channel/UCOaUTqrtz1yBBiwziVJEAmQ" class="y_link">전략적 팀 전투 유튜브 바로가기</a>
         </div>
       </section>
 

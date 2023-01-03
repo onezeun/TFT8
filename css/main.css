@@ -114,11 +114,12 @@ h2 {
   vertical-align: middle;
   background: #7d6391;
   border-radius: 5px;
+  transition: all ease 0.3s 0s;
 }
 
 .all_view:hover {
   color: white;
-  background: #73429b;
+  background: #562e74;
 }
 
 .syn_cont {
@@ -224,7 +225,6 @@ h2 {
   padding: 40px 2%;
 }
 
-
 .agm_hero_wrap {
   display: flex;
   justify-content: center;
@@ -232,20 +232,18 @@ h2 {
 }
 
 .agm_txt {
-  margin-top: 200px;
+  margin-top: 210px;
   padding: 15px;
 }
 
-
 .agm_hero_left {
-  width: 48%;
+  width: 100%;
   height: 100%;
-  margin-right: 1%;
   box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
-  max-width: 270px;
+  max-width: 490px;
   overflow: hidden;
   position: relative;
-  min-height: 650px;
+  min-height: 550px;
 }
 
 .agm_left_bg {
@@ -256,10 +254,10 @@ h2 {
   width: 100%;
   height: inherit;
   background: linear-gradient(
-    rgba(0,0,0,0) 10%,
-    rgba(0,0,0,0.2) 20%,
-    rgba(0,0,0,0.6) 25%,
-    rgba(0,0,0,1) 40%,
+    rgba(0,0,0,0) 20%,
+    rgba(0,0,0,0.2) 35%,
+    rgba(0,0,0,0.6) 40%,
+    rgba(0,0,0,1) 45%,
     rgba(0,0,0,1) 100%
   );
   z-index: -1;
@@ -268,30 +266,14 @@ h2 {
 .agm_left_img {
   position: absolute;
   top: 40px;
-  right: 25px;
-  transform: scale(1.5);
+  right: 110px;
+  transform: scale(1.8);
   z-index: -2;
 }
 
 .agm_hero_right {
-  margin-top: 100px;
-  width: 48%;
-  height: 100%;
-  margin-left: 2%;
-  box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
-  max-width: 270px;
-  overflow: hidden;
-  position: relative;
-  min-height: 650px;
+  display: none;
 }
-
-.agm_right_img {
-  position: absolute;
-  top: 40px;
-  right: 25px;
-  transform: scale(1.5);
-  z-index: -2;
-} 
 
 .skill_title{
   display: block;
@@ -444,8 +426,15 @@ display: none ;
   }
 
   .y_link {
+    color: white;
     font-family: 'RixYeoljeongdo_Regular'; 
     font-size: 24px;
+    transition: all ease 0.5s 0s;
+  }
+
+  .y_link:hover {
+    color:#ffde4c;
+    text-shadow: 1px 1px 1px #4f4e4e;
   }
 
   .lux_wrap {
@@ -547,21 +536,83 @@ display: none ;
   }
 
   .slide_prev {
+    color: white;
     font-size: 50px;
     font-weight: bold;
     position: absolute;
     top: 30px;
     left: 30%;
+    transition: all ease 0.3s 0s;
   }
 
   .slide_next {
+    color: white;
     font-size: 50px;
     font-weight: bold;
     position: absolute;
     top: 30px;
     right: 30%;
+    transition: all ease 0.3s 0s;
   }
 
+  .slide_prev:hover, .slide_next:hover {
+    color: #a28db1;
+  }
+  
+  .agm_txt {
+    margin-top: 200px;
+  }
+  
+  .agm_hero_left {
+    width: 48%;
+    margin-right: 1%;
+    max-width: 270px;
+    min-height: 650px;
+  }
+  
+  .agm_left_bg {
+    background: linear-gradient(
+      rgba(0,0,0,0) 10%,
+      rgba(0,0,0,0.2) 20%,
+      rgba(0,0,0,0.6) 25%,
+      rgba(0,0,0,1) 40%,
+      rgba(0,0,0,1) 100%
+    );
+  }
+  
+  .agm_left_img {
+    right: 25px;
+    transform: scale(1.5);
+  }
+  
+  .agm_hero_right {
+    display: block;
+    margin-top: 100px;
+    width: 48%;
+    height: 100%;
+    margin-left: 2%;
+    box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.7);
+    max-width: 270px;
+    overflow: hidden;
+    position: relative;
+    min-height: 650px;
+  }
+  
+  .agm_right_img {
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    transform: scale(1.5);
+    z-index: -2;
+  } 
+  
+  .skill_title{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+  }
+  
   .link_wrap {
     height: 90vh;
     margin-top: 20%;
