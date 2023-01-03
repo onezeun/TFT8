@@ -61,6 +61,7 @@ $(document).ready(function () {
     },
     error: function () {
       $("#srch_txt").text(search_name);
+      $(".loading").hide();
       $(".content").hide();
       $(".err_box").show();
     },
