@@ -289,10 +289,13 @@
                       <span>
                         <?php 
                           $lclass_title = $lcl_array == null ? '' : $lcl_array['class_title'];
-                          $lclass_img = $lcl_array == null ? '' : $lcl_array['class_icon'];
+                          if($lcl_array != null) {
                         ?>
-                        <img src="images/synergies/<?php echo $lclass_img; ?>.svg" alt="<?php echo $lclass_title; ?>" class="icon">
-                        <?php echo $lclass_title;?>
+                          <img src="images/synergies/<?php echo $lcl_array['class_icon']; ?>.svg" alt="<?php echo $lclass_title; ?>" class="icon">
+                        <?php 
+                          };
+                          echo $lclass_title;
+                        ?>
                       </span>
                     </p>
                     <div class="ahl_skill">
@@ -320,10 +323,13 @@
                       <span>
                         <?php 
                           $rclass_title = $rcl_array == null ? '' : $rcl_array['class_title'];
-                          $rclass_img = $rcl_array == null ? '' : $rcl_array['class_icon'];
+                          if($rcl_array != null) {
                         ?>
-                        <img src="images/synergies/<?php echo $rclass_img; ?>.svg" alt="<?php echo $rclass_title; ?>" class="icon">
-                        <?php echo $rclass_title;?>
+                          <img src="images/synergies/<?php echo $rcl_array['class_icon']; ?>.svg" alt="<?php echo $rclass_title; ?>" class="icon">
+                        <?php 
+                          };
+                          echo $rclass_title;
+                        ?>
                       </span>
                     </p>
                     <div class="ahl_skill">
