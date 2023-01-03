@@ -255,11 +255,11 @@
                 $lc_idx = $left_cham_array['c_idx'];
                 $rc_idx = $lc_idx == 59 ? $lc_idx - 1 : $lc_idx + 1;
 
-                $lo_sql = "SELECT cham.c_name, cham.c_img, o.o_title FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $lc_idx;";
+                $lo_sql = "SELECT cham.c_name, cham.c_img, o.o_title, o.o_icon FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $lc_idx;";
                 $lo_result = mysqli_query($dbcon, $lo_sql);
                 $lo_array = mysqli_fetch_array($lo_result);
 
-                $lcl_sql = "SELECT  cl.class_title FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $lc_idx;";
+                $lcl_sql = "SELECT  cl.class_title, cl.class_icon FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $lc_idx;";
                 $lcl_result = mysqli_query($dbcon, $lcl_sql);
                 $lcl_array = mysqli_fetch_array($lcl_result);
 
@@ -267,11 +267,11 @@
                 $lagm_result = mysqli_query($dbcon, $lagm_sql);
 
                 // 오른쪽
-                $ro_sql = "SELECT cham.c_name, cham.c_img, o.o_title FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $rc_idx;";
+                $ro_sql = "SELECT cham.c_name, cham.c_img, o.o_title, o.o_icon FROM champions cham JOIN champion_origin con ON con.c_idx = cham.c_idx JOIN origin_synergies o ON con.o_idx = o.o_idx WHERE cham.c_idx = $rc_idx;";
                 $ro_result = mysqli_query($dbcon, $ro_sql);
                 $ro_array = mysqli_fetch_array($ro_result);
 
-                $rcl_sql = "SELECT  cl.class_title FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $rc_idx;";
+                $rcl_sql = "SELECT  cl.class_title, cl.class_icon FROM champions cham JOIN champion_class ccn ON ccn.c_idx = cham.c_idx JOIN class_synergies cl ON ccn.class_idx = cl.class_idx WHERE cham.c_idx = $rc_idx;";
                 $rcl_result = mysqli_query($dbcon, $rcl_sql);
                 $rcl_array = mysqli_fetch_array($rcl_result);
 
@@ -285,11 +285,15 @@
                   <div class="agm_txt">
                     <h3><?php echo $lo_array['c_name']; ?></h3>
                     <p>
-                      <span><?php echo $lo_array['o_title']; ?></span>
-                      <span><?php 
-                      $lclass_title = $lcl_array == null ? '' : $lcl_array['class_title'];
-                      echo $lclass_title;
-                      ?></span>
+                      <span><img src="images/synergies/<?php echo $lo_array['o_icon']; ?>.svg" alt="<?php echo $lo_array['o_title']; ?>" class="icon"><?php echo $lo_array['o_title']; ?></span>
+                      <span>
+                        <?php 
+                          $lclass_title = $lcl_array == null ? '' : $lcl_array['class_title'];
+                          $lclass_img = $lcl_array == null ? '' : $lcl_array['class_icon'];
+                        ?>
+                        <img src="images/synergies/<?php echo $lclass_img; ?>.svg" alt="<?php echo $lclass_title; ?>" class="icon">
+                        <?php echo $lclass_title;?>
+                      </span>
                     </p>
                     <div class="ahl_skill">
                     <?php while (
@@ -312,11 +316,15 @@
                   <div class="agm_txt">
                     <h3><?php echo $ro_array['c_name']; ?></h3>
                     <p>
-                      <span><?php echo $ro_array['o_title']; ?></span>
-                      <span><?php 
-                      $rclass_title = $rcl_array == null ? '' : $rcl_array['class_title'];
-                      echo $rclass_title;
-                      ?></span>
+                      <span><img src="images/synergies/<?php echo $ro_array['o_icon']; ?>.svg" alt="<?php echo $ro_array['o_title']; ?>" class="icon"><?php echo $ro_array['o_title']; ?></span>
+                      <span>
+                        <?php 
+                          $rclass_title = $rcl_array == null ? '' : $rcl_array['class_title'];
+                          $rclass_img = $rcl_array == null ? '' : $rcl_array['class_icon'];
+                        ?>
+                        <img src="images/synergies/<?php echo $rclass_img; ?>.svg" alt="<?php echo $rclass_title; ?>" class="icon">
+                        <?php echo $rclass_title;?>
+                      </span>
                     </p>
                     <div class="ahl_skill">
                     <?php while (
