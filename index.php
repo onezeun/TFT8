@@ -380,8 +380,12 @@
     </footer>
   </div>
   <?php // DB 접속 종료
+    mysqli_close($dbcon); 
+  ?>
 
-mysqli_close($dbcon); ?>
+  <div class="go_top">
+    <img src="images/go_top.png" alt="맨위로가기버튼">
+  </div>
 </body>
 
 </html>

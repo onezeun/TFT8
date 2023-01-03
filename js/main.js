@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  // 위로가기 버튼
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('.go_top').fadeIn(500);
+    } else {
+      $('.go_top').fadeOut('slow');
+    }
+  });
+  $('.go_top').click(function (e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 200);
+  });
   // 버튼 링크
   var window_width = $(window).width();
   if(window_width < 1000) {
@@ -31,6 +43,7 @@ $(document).ready(function () {
   $('#new_title').waypoint(
     function () {
       $('.cst_card').css({ opacity: '0' });
+      $('.cst_card').removeClass('animate__animated animate__zoomIn');
       $('#new_title').addClass('animate__animated animate__backInUp');
     },
     { offset: '100%' },
@@ -56,12 +69,18 @@ $(document).ready(function () {
     function () {
       $('#cst_card3').css({ opacity: '1' });
       $('#cst_card3').addClass('animate__animated animate__zoomIn');
+      $('#syn_title').removeClass('animate__animated animate__backInUp');
+      $('#syn_slide').removeClass('animate__animated animate__zoomInUp');
+      $('#syn_slide_arrow').removeClass('animate__animated animate__fadeIn');
     },
     { offset: '50%' },
   );
 
   $('#syn_title').waypoint(
     function () {
+      $('#new_title').removeClass('animate__animated animate__backInUp');
+      $('#syn_slide').removeClass('animate__animated animate__zoomInUp');
+      $('#syn_slide_arrow').removeClass('animate__animated animate__fadeIn');
       $('#syn_slide_arrow').css({ opacity: '0' });
       $('#syn_slide').css({ opacity: '0' });
       $('#syn_title').addClass('animate__animated animate__backInUp');
@@ -71,10 +90,14 @@ $(document).ready(function () {
 
   $('#syn_slide').waypoint(
     function () {
+      $('.cst_card').removeClass('animate__animated animate__zoomIn');
       $('#syn_slide_arrow').css({ opacity: '1' });
       $('#syn_slide').css({ opacity: '1' });
       $('#syn_slide').addClass('animate__animated animate__zoomInUp');
       $('#syn_slide_arrow').addClass('animate__animated animate__fadeIn');
+      $('#agm_title').removeClass('animate__animated animate__backInUp');
+      $('#agm_slide').removeClass('animate__animated animate__zoomInUp');
+      $('#agm_slide_arrow').removeClass('animate__animated animate__fadeIn');
     },
     { offset: '50%' },
   );
@@ -90,6 +113,9 @@ $(document).ready(function () {
 
   $('#agm_slide').waypoint(
     function () {
+      $('#syn_title').removeClass('animate__animated animate__backInUp');
+      $('#syn_slide').removeClass('animate__animated animate__zoomInUp');
+      $('#syn_slide_arrow').removeClass('animate__animated animate__fadeIn');
       $('#agm_slide').css({ opacity: '1' });
       $('#agm_slide_arrow').css({ opacity: '1' });
       $('#agm_slide').addClass('animate__animated animate__zoomInUp');
@@ -97,6 +123,12 @@ $(document).ready(function () {
     },
     { offset: '50%' },
   );
+
+  $('.link_btn').waypoint(function() {
+    $('#agm_title').removeClass('animate__animated animate__backInUp');
+    $('#agm_slide').removeClass('animate__animated animate__zoomInUp');
+    $('#agm_slide_arrow').removeClass('animate__animated animate__fadeIn');
+  }, { offset: '100%' },);
 
   // 시너지 슬라이더
   $('.syn_slide')
