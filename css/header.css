@@ -15,8 +15,7 @@ fieldset {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 2%;
-  line-height: 100px;
+  padding: 20px 2%;
   margin: auto;
 }
 
@@ -60,7 +59,7 @@ fieldset {
   background: #282828;
   position: absolute;
   right: 5px;
-  top: 25px;
+  top: 5px;
 }
 
 .gnb {
@@ -140,8 +139,25 @@ fieldset {
 
 .main_menu li {
   font-size: 22px;
+  margin: 30px 10px;
 }
 
+.sub_menu_btn{
+  margin-bottom: 10px;
+}
+
+.main_menu a:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: white;
+  transition: all .5s ease;
+}
+
+.main_menu a:hover:after {
+  width: 100%;
+}
 
 @media screen and (min-width:1000px) {
   /* header */
@@ -152,13 +168,19 @@ fieldset {
   .header_wrap {
     max-width: 1200px;
     justify-content: space-between;
+    padding: 20px 2%;
+  }
+
+  .main_menu li {
+    font-size: 22px;
+    margin: 0;
   }
 
   .gnb {
     width: 250px;
   }
 
-  .gnb input, .gnb span, .sub_menu {
+  .gnb input, .gnb span {
     display: none;
   }
 
@@ -172,5 +194,51 @@ fieldset {
     padding: 0;
     padding-top: 0;
     background: none;
+  }
+
+  .sub_menu {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 68px;
+    left: 60px;
+    width: 170px;
+    background-color: #282828;
+  }
+
+  .sub_menu li {
+    border-top: 1px solid #414141;
+    padding: 10px;
+  }
+
+  .main_menu > li > a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: white;
+    margin: auto;
+    transition: all .5s ease;
+  }
+  
+  .main_menu > li > a:hover:after {
+    width: 100%;
+  }
+  
+
+  .sub_menu li:hover {
+    background: #414141;
+  }
+
+  .main_menu a:after {
+    display: none;
+  }
+  
+  .main_menu a:hover:after {
+    width: 0;
+  }
+
+  .sub_menu01 {
+    width: 50px;
   }
 }

@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $('#sub_menu_btn').on('click', function(){
+    $('.sub_menu').slideToggle();
+  })
+
   $("#sch_btn").on("click", function () {
     var sch_txt = $("#sch_txt").val();
 
@@ -9,6 +13,7 @@ $(document).ready(function () {
       location.href='http://localhost/KDT-2nd-project-TFT8.0/profile/profile.html';
     }
   });
+
 
   // 햄버거메뉴
   $(".gnb_ckbox").on("click", function () {
