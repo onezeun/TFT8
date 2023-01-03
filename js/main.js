@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  // 버튼 링크
+  var window_width = $(window).width();
+  if(window_width < 1000) {
+    $('.link_btn').attr('href', 'https://apps.apple.com/kr/app/%EC%A0%84%EB%9E%B5%EC%A0%81-%ED%8C%80-%EC%A0%84%ED%88%AC-%EB%A6%AC%EA%B7%B8-%EC%98%A4%EB%B8%8C-%EB%A0%88%EC%A0%84%EB%93%9C-%EC%A0%84%EB%9E%B5-%EA%B2%8C%EC%9E%84/id1480616748')
+  } else {
+    $('.link_btn').attr('href', 'https://download.kr.riotgames.com/league')
+  }
+
   // 마우스무브 애니메이션
   let x = 0;
   let y = 0;
