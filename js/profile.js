@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var search_name = localStorage.getItem("search_name");
-  var api_key = "RGAPI-beb3ad06-cbe2-42ae-8c09-44055d57bb7f";
+  var api_key = "RGAPI-e2d7e6d2-5cef-4432-b11e-7d161050683f";
 
   // 전역 변수 설정
   var user_id;
@@ -48,17 +48,18 @@ $(document).ready(function () {
     }
   }
 
+
   $.ajax({
     url: "https://kr.api.riotgames.com/tft/summoner/v1/summoners/by-name/" + search_name + "?api_key=" + api_key,
     type: "GET",
     async: false,
     dataType: "json",
     success: function () {
-      $(".content").show();
+      $(".loading").show();
       $(".err_box").hide();
+      $(".content").hide();
     },
     error: function () {
-      console.log("에러");
       $("#srch_txt").text(search_name);
       $(".content").hide();
       $(".err_box").show();
@@ -176,7 +177,6 @@ $(document).ready(function () {
 
               $.map(participants, (player, i) => {
                 if (player.puuid == puu_id) {
-                  console.log(player)
                   // 게임 참가자 중 검색한 유저의 정보만 배열에 넣기
                   // history_user.push(player)
                   var placement = player.placement;
@@ -195,16 +195,10 @@ $(document).ready(function () {
                       rank_background = 'style="background:#ffb93b"';
                       break;
                     case 2:
-                      chart_bg =  'style="background:#a057bb"';
-                      rank_background = 'style="background:#a057bb"';
-                      break;
                     case 3:
-                      chart_bg =  'style="background:#207ac7"';
-                      rank_background = 'style="background:#207ac7"';
-                      break;
                     case 4:
-                      chart_bg =  'style="background:#18b48b"';
-                      rank_background = 'style="background:#18b48b"';
+                      chart_bg =  'style="background:#9c86ad"';
+                      rank_background = 'style="background:#9c86ad"';
                       break;
                     case 5:
                     case 6:
@@ -534,6 +528,8 @@ $(document).ready(function () {
                   );
                 };
               });
+              $(".content").show();
+              $(".loading").hide();
             });
           });
           // 1 ~ 8등 계산
@@ -589,10 +585,10 @@ $(document).ready(function () {
             data: rank_list,
             // ⑦dataset의 배경색(rgba값을 String으로 표현)
             backgroundColor: [
-              "#1ca983",
-              "#3786c7",
-              "#3786c7",
-              "#3786c7",
+              "#ffb93b",
+              "#9c86ad",
+              "#9c86ad",
+              "#9c86ad",
               "#dadada",
               "#dadada",
               "#dadada",

@@ -1,4 +1,17 @@
 /* content */
+.loading {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background: rgb(255, 255, 255, 0.9);
+  /* background: white; */
+  color: black;
+  padding-top: 20vh;
+  font-size: 2.5em;
+  text-align: center;
+  font-family: 'RixYeoljeongdo_Regular';
+}
+
 .err_box {
   max-width: 1200px;
   height: 90vh;
