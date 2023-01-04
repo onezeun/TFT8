@@ -1,6 +1,5 @@
 
 -- 메인페이지
-
 -- 계열시너지 데이터
 SELECT * FROM origin_synergies WHERE o_icon = 'Gadgeteen';
 
@@ -17,7 +16,6 @@ SELECT cham.c_name, cl.class_title FROM champions cham JOIN champion_class ccn O
 SELECT cham.c_name, agm.a_title, agm.a_content, agm.a_icon FROM augments agm JOIN champions cham ON agm.c_idx = cham.c_idx WHERE cham.c_idx = 31;
 
 -- 챔피언 페이지
-
 -- 모든 챔피언 리스트(시너지 추가)
 SELECT * FROM champions ORDER BY c_cost;
 
