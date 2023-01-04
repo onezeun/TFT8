@@ -259,7 +259,7 @@ h2 {
 
 .agm_txt {
   margin-top: 210px;
-  padding: 15px;
+  padding: 50px 20px 20px;
 }
 
 .icon {
@@ -306,6 +306,10 @@ h2 {
 
 .agm_hero_right {
   display: none;
+}
+
+.ahl_skill {
+  margin-top: 30px;
 }
 
 .skill_title{
@@ -817,5 +821,9 @@ path.two {
   .link_btn {
     font-size: 2rem;
     padding:0 3.1%;
+  }
+
+  .ahl_skill {
+    margin-top: 0;
   }
 }

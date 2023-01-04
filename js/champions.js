@@ -13,8 +13,6 @@ $(document).ready(function () {
       ck_list.splice($.inArray($(this).val(), ck_list), 1);
     }
 
-    console.log(ck_list)
-    
     $('.card_check').val(ck_list.every(item => card_value.includes(item)));
 
     if (!ck_list.length) {

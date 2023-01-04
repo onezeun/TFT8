@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var search_name = localStorage.getItem("search_name");
-  var api_key = "RGAPI-e2d7e6d2-5cef-4432-b11e-7d161050683f";
+  var api_key = "RGAPI-7552a7ae-69c3-436b-b38a-70301899f13c";
 
   // 전역 변수 설정
   var user_id;
@@ -417,7 +417,7 @@ $(document).ready(function () {
                   // 증강 --------------------------------------------------
                   var augment;
                   var augment_list = [];
-                  var champions_list = ['Galio', 'Gangplank', 'Nasus', 'Nunu', 'Nilah', 'Draven', 'Rammus', 'Lux', 'Renekton', 'Leona', 'Rell', 'Lulu', 'Leblanc', 'LeeSin', 'Riven', 'Malphite', 'Mordekaiser', 'MissFortune', 'Vi', 'Vayne', 'Belveth', 'Velkoz', 'Blitzcrank', 'Viego', 'Poppy', 'Samira', 'Sylas', 'Senna', 'Sejuani', 'Sett', 'Sona', 'Soraka', 'Sivir', 'Syndra', 'AurelionSol', 'Aphelios', 'Alistar', 'Annie', 'Ashe', 'Yasuo', 'Ekko', 'MonkeyKing', 'Urgot', 'Yuumi', 'Ezreal', 'Zac', 'Janna', 'Jax', 'Zed', 'Zoe', 'Jinx', 'Chogath', 'Camille', 'Kaisa', 'Kayle', 'Talon', 'Taliyah', 'Fiddlesticks', 'Fiora'];
+                  var champions_list = ['Galio', 'Gangplank', 'Nasus', 'Nunu', 'Nilah', 'Draven', 'Rammus', 'Lux', 'Renekton', 'Leona', 'Rell', 'Lulu', 'Leblanc', 'LeBlanc', 'LeeSin', 'Riven', 'Malphite', 'Mordekaiser', 'MissFortune', 'Vi', 'Vayne', 'Belveth', 'Velkoz', 'Blitzcrank', 'Viego', 'Poppy', 'Samira', 'Sylas', 'Senna', 'Sejuani', 'Sett', 'Sona', 'Soraka', 'Sivir', 'Syndra', 'AurelionSol', 'Aphelios', 'Alistar', 'Annie', 'Ashe', 'Yasuo', 'Ekko', 'MonkeyKing', 'Urgot', 'Yuumi', 'Ezreal', 'Zac', 'Janna', 'Jax', 'Zed', 'Zoe', 'Jinx', 'Chogath', 'Camille', 'Kaisa', 'Kayle', 'Talon', 'Taliyah', 'Fiddlesticks', 'Fiora'];
                   $.map(augments, (val, i) => {
                     var hero;
                     var hero_ck = 0;
