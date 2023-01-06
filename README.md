@@ -1,8 +1,9 @@
 # TFT 시즌8: 괴물습격을 소개합니다!
 <p align="middle" >
 <br>
-<img src="https://user-images.githubusercontent.com/78632052/210486067-743dcbcf-dad0-4a9c-8c43-c38b0eb2520e.png"><br>
+<img src="https://user-images.githubusercontent.com/78632052/211018584-115cf13c-f51a-4b44-b333-6ffc299028cc.png"><br>
 </p>
+
 
 
 <div align="center">
@@ -44,7 +45,7 @@
 
 |반응형 웹|API 활용|필터 검색|
 | :---: |  :---: | :---: |
-|<img src="https://user-images.githubusercontent.com/78632052/210491763-a5978769-e4ad-4d4d-8186-99aeb104d346.gif" width="100%" height="100%"/> |<img src="https://user-images.githubusercontent.com/78632052/210492106-23c02c6a-8586-44cf-b635-61d62947dcec.png" width="70%" height="70%"/>|<img src="https://user-images.githubusercontent.com/78632052/210491818-a954dfcc-3c60-4d18-af0b-3ab0dbed5f15.gif" width="100%" height="100%"/>|
+|<img src="https://user-images.githubusercontent.com/78632052/210491763-a5978769-e4ad-4d4d-8186-99aeb104d346.gif" width="100%" height="100%"/> |<img src="https://user-images.githubusercontent.com/78632052/211018615-443bc18c-c165-48bd-9532-0e7eb21d6973.png" width=700%" height="70%"/>|<img src="https://user-images.githubusercontent.com/78632052/210491818-a954dfcc-3c60-4d18-af0b-3ab0dbed5f15.gif" width="100%" height="100%"/>|
 |모바일, 데스크탑 환경에 따라 반응형으로 동작합니다. | 실제 사용하는 닉네임을 검색해 게임 전적을 확인할 수 있습니다.|체크박스를 이용해 항목을 선택하여 원하는 데이터를 조회할 수 있습니다.|
 
 </div>
